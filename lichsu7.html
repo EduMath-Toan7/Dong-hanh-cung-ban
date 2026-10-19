@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><title>Chúng mình cùng học Lịch sử 7</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b45309"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf6ea;--cd:#fff;--tx:#2b2118;--mu:#6b5b4b;--pr:#b45309;--pr2:#7c2d12;--ok:#15803d;--okb:#dcfce7;--wb:#fff4dc;--bd:#e7dcc6;--sh:0 8px 24px rgba(124,45,18,.12);--c:#b45309;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#17130f;--cd:#241d16;--tx:#f6efe4;--mu:#c3b6a3;--pr:#f59e0b;--pr2:#fbbf24;--ok:#5fd18d;--okb:#1c3a2a;--wb:#3a2c17;--bd:#4a3d2d;--sh:0 8px 24px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:19px/1.6 'Be Vietnam Pro','Segoe UI',system-ui,Roboto,Arial,sans-serif;background-image:radial-gradient(var(--bd) 1px,transparent 1.5px);background-size:26px 26px}
+body.big{font-size:25px}
+#app{max-width:860px;margin:0 auto;padding:12px 14px 70px}
+h1{font-size:1.4em;line-height:1.25;margin:.2em 0}h2{font-size:1.05em;margin:1.3em 0 .4em;color:var(--pr2)}h3{margin:.2em 0}
+@media(prefers-color-scheme:dark){h2{color:var(--pr)}}
+button,.btn{font:inherit;color:inherit;cursor:pointer;border:3px solid var(--bd);background:var(--cd);border-radius:16px;padding:10px 14px;min-height:54px;max-width:100%;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .15s,box-shadow .15s}
+button:focus-visible,.btn:focus-visible,a:focus-visible{outline:4px solid var(--pr);outline-offset:2px}
+button:disabled{opacity:.55;cursor:default}button:active{transform:translateY(2px)}
+@media(prefers-reduced-motion:no-preference){button:not(:disabled):hover,.btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1)}}
+.sm{min-height:46px;padding:4px 12px;font-size:.78em;border-radius:14px}
+.on{background:var(--pr)!important;color:#fff!important;border-color:var(--pr)!important}
+.pri{background:linear-gradient(135deg,var(--c,#b45309),color-mix(in srgb,var(--c,#b45309) 70%,#000));color:#fff;border-color:transparent;font-weight:700;min-height:60px;padding:12px 22px;border-radius:18px;box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:2px 0 10px}.top .sp{flex:1}
+.hero{position:relative;overflow:hidden;display:flex;gap:16px;align-items:center;color:#fff;border-radius:28px;padding:18px 20px;margin:8px 0 12px;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 55%,#000));box-shadow:0 8px 0 rgba(0,0,0,.14),var(--sh)}
+.hero:before{content:"";position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14)}
+.hero .hi{flex:none;width:74px;height:74px;border-radius:22px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:2.4rem;position:relative}
+.hero div{position:relative;min-width:0}.hero small{display:block;font-size:.66em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.92}.hero h1{color:#fff;margin:.1em 0}.hero p{margin:.2em 0 0;font-size:.85em;opacity:.95}
+.card,.box{background:var(--cd);border:2px solid var(--bd);border-radius:22px;padding:14px 16px;margin:12px 0;box-shadow:0 4px 0 rgba(0,0,0,.05)}
+.box{border-top:8px solid var(--c)}
+.memo{background:var(--wb);border:3px dashed #f0b429;border-radius:18px;padding:12px 14px;margin:12px 0}
+.msg{min-height:3em;border-radius:14px;padding:10px 12px;margin:10px 0;background:var(--wb)}.msg.g{background:var(--okb);border:2px solid var(--ok)}
+.hint{background:var(--wb);border-radius:12px;padding:8px 12px;margin:8px 0}
+.say{min-height:44px;min-width:44px;padding:2px 10px;border-radius:999px;font-size:.85em;flex:none;background:var(--wb)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:10px 0}
+.tile{flex-direction:column;align-items:flex-start;text-align:left;min-height:110px;padding:14px;border:0;color:#fff;border-radius:24px;background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 60%,#000));box-shadow:0 6px 0 rgba(0,0,0,.2)}
+.tile .ti{font-size:2rem;line-height:1}.tile b{font-size:1em}.tile small{opacity:.92;font-size:.72em;line-height:1.3}
+.les{display:flex;gap:12px;align-items:center;width:100%;text-align:left;margin:9px 0;border-left:12px solid var(--c);border-radius:22px;box-shadow:0 5px 0 rgba(0,0,0,.07);justify-content:flex-start}
+.les .ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:1.7rem;flex:none;background:color-mix(in srgb,var(--c) 16%,var(--cd))}
+.les .tx{display:block;min-width:0;flex:1}.les b{display:block;line-height:1.3}.les small{display:block;color:var(--mu);font-size:.72em}.les .st{margin-left:auto;white-space:nowrap;font-weight:700;text-align:right;font-size:.85em}
+.stars{font-style:normal;color:#f59e0b;display:block;letter-spacing:1px}
+.off{display:flex;gap:10px;align-items:center;opacity:.7;padding:8px 12px;margin:6px 0;border:2px dashed var(--bd);border-radius:16px;color:var(--mu);font-size:.85em}
+.chap{display:flex;align-items:center;gap:10px;margin:22px 0 4px;padding:8px 14px;border-radius:16px;background:color-mix(in srgb,var(--c) 14%,var(--cd));border:2px solid color-mix(in srgb,var(--c) 40%,var(--bd));font-weight:800;color:var(--tx)}
+.chap span{font-size:1.4em}
+.pb{height:16px;border-radius:99px;background:var(--bd);overflow:hidden;margin:8px 0}.pb i{display:block;height:100%;background:linear-gradient(90deg,#16a34a,#84cc16);border-radius:99px}
+.dots{display:flex;gap:6px;margin:6px 0 2px}.dots i{width:14px;height:14px;border-radius:50%;background:var(--bd)}.dots i.d{background:var(--ok)}.dots i.c{background:var(--c)}
+/* bìa */
+.cover{background:var(--cd);border:3px solid var(--bd);border-radius:30px;overflow:hidden;box-shadow:var(--sh);margin:8px 0}
+.cover svg{display:block;width:100%;height:auto}
+.cover .ttl{text-align:center;padding:14px 16px 20px}.cover .eb{font-size:.62em;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pr)}
+.cover h1{font-size:2em;margin:.1em 0;color:var(--pr2)}@media(prefers-color-scheme:dark){.cover h1{color:var(--pr2)}}
+.cover h1 em{font-style:normal;color:var(--pr)}.cover .sub{font-size:.82em;color:var(--mu)}
+.pick{font-weight:800;text-align:center;font-size:1.15em;margin:20px 0 6px}.pick:after{content:"▼";display:block;color:#f59e0b;font-size:.7em}
+.lvs{display:grid;gap:18px;margin:10px 0}@media(min-width:760px){.lvs{grid-template-columns:1fr 1fr}}
+.lv{display:block;width:100%;text-align:left;padding:0;border:6px solid var(--lc);border-radius:28px;overflow:hidden;background:var(--cd);box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.lv .lh{display:block;background:var(--lc);color:#fff;padding:10px 16px;font-weight:800}.lv .lh small{display:block;font-size:.66em;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.lv .lb{display:block;padding:12px 16px 16px;font-size:.88em;color:var(--tx)}.lv .ch{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.lv .ch i{font-style:normal;font-size:.8em;border:2px solid var(--lc);border-radius:999px;padding:1px 10px;font-weight:700}
+.lv .go{display:flex;justify-content:center;background:var(--lc);color:#fff;border-radius:999px;padding:8px;font-weight:800;font-size:1.05em}
+/* đọc ý chính */
+.kc{display:flex;gap:12px;align-items:flex-start;background:var(--cd);border:2px solid var(--bd);border-left:10px solid var(--c);border-radius:20px;padding:12px 14px;margin:10px 0}
+.kc .e{font-size:2rem;line-height:1.1;flex:none}.kc p{margin:0;flex:1}
+.goal{display:flex;gap:10px;align-items:flex-start;background:color-mix(in srgb,var(--c) 12%,var(--cd));border:2px solid color-mix(in srgb,var(--c) 40%,var(--bd));border-radius:18px;padding:10px 14px;margin:10px 0}.goal p{margin:0;flex:1}
+details{background:var(--cd);border:2px solid var(--bd);border-radius:16px;padding:8px 14px;margin:10px 0}summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+/* mức 2 */
+.big2{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:var(--cd);border:4px solid var(--c);border-radius:28px;padding:20px 16px;margin:14px 0;box-shadow:0 6px 0 rgba(0,0,0,.08)}
+.big2 .e{font-size:4.2rem;line-height:1}.big2 p{margin:0;font-size:1.25em;font-weight:700}
+/* dòng thời gian */
+.tm{position:relative;margin:14px 0 6px;padding-left:4px}.tm:before{content:"";position:absolute;left:46px;top:6px;bottom:6px;width:5px;border-radius:5px;background:linear-gradient(var(--c),color-mix(in srgb,var(--c) 30%,var(--bd)))}
+.ev{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:0;background:none;padding:6px 0;min-height:0;box-shadow:none!important;transform:none!important}
+.ev .y{flex:none;width:92px;text-align:center;position:relative;z-index:1;background:var(--c);color:#fff;border-radius:14px;padding:4px 2px;font-weight:800;font-size:.85em;margin-top:4px;box-shadow:0 0 0 5px var(--bg)}
+.ev .b{flex:1;min-width:0;background:var(--cd);border:2px solid var(--bd);border-radius:16px;padding:10px 12px}.ev .b b{display:block;line-height:1.35}.ev .d{display:none;margin-top:6px;color:var(--mu);font-size:.9em}
+.ev[aria-expanded=true] .d{display:block}.ev[aria-expanded=true] .b{border-color:var(--c)}
+.ev .ar{float:right;color:var(--c);font-weight:800}
+/* nhân vật */
+.pcs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:12px 0}
+.pc{display:block;width:100%;text-align:left;padding:0;border-radius:22px;border:3px solid color-mix(in srgb,var(--c) 45%,var(--bd));overflow:hidden;background:var(--cd);min-height:0}
+.pc .ph{display:flex;gap:12px;align-items:center;padding:12px 14px}.pc .pi{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:1.8rem;background:color-mix(in srgb,var(--c) 18%,var(--cd));flex:none}
+.pc b{display:block;line-height:1.25}.pc small{display:block;color:var(--mu);font-size:.72em}
+.pc .pd{display:none;padding:0 14px 14px;font-size:.92em}.pc[aria-expanded=true] .pd{display:block}.pc[aria-expanded=true]{border-color:var(--c)}
+.pc .pd div{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+/* câu hỏi */
+.q{font-size:1.12em;font-weight:700;margin:8px 0;display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:12px 0}.opts button{font-weight:700;min-height:66px;font-size:1.02em;line-height:1.3}
+.opts button:nth-child(3n+1){background:color-mix(in srgb,#2563eb 9%,var(--cd))}.opts button:nth-child(3n+2){background:color-mix(in srgb,#f59e0b 12%,var(--cd))}.opts button:nth-child(3n){background:color-mix(in srgb,#16a34a 10%,var(--cd))}
+.yes{background:var(--okb)!important;border-color:var(--ok)!important;opacity:1!important}.no{opacity:.4;text-decoration:line-through}.sel{border-color:var(--c)!important;border-width:5px}
+.pulse{border-color:var(--ok)!important;border-width:6px}@media(prefers-reduced-motion:no-preference){.pulse{animation:pl 1s ease-in-out infinite}@keyframes pl{50%{transform:scale(1.04)}}}
+.slots{display:grid;gap:8px;margin:10px 0}.slot{display:flex;gap:10px;align-items:center;min-height:56px;border:3px dashed var(--bd);border-radius:14px;padding:6px 12px;background:var(--cd)}.slot em{font-style:normal;flex:none;width:34px;height:34px;border-radius:50%;background:var(--bd);display:grid;place-items:center;font-weight:800;font-size:.8em}
+.slot.f{border-style:solid;border-color:var(--ok);background:var(--okb)}.slot.f em{background:var(--ok);color:#fff}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}.bank button{font-weight:600;font-size:.95em}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.mt div{display:grid;gap:10px;align-content:start}.mt button{font-size:.92em;line-height:1.3}
+@media(max-width:480px){.mt{gap:6px}.mt button{font-size:.85em;padding:8px 6px}}
+.res{text-align:center}.res .big{font-size:3.6rem;line-height:1.1}.res .sc{font-size:1.6em;font-weight:800;color:var(--c)}
+.rowb{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
+.cf{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}.cf i{position:absolute;top:-14px;width:10px;height:16px;border-radius:3px;animation:fall 1.6s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+/* toàn cảnh */
+.era{display:flex;gap:8px;overflow-x:auto;padding:6px 2px 12px;scroll-snap-type:x proximity;margin:6px 0}
+.era button{flex:none;scroll-snap-align:start;flex-direction:column;align-items:flex-start;text-align:left;min-height:0;padding:8px 12px;border:3px solid var(--c);background:color-mix(in srgb,var(--c) 12%,var(--cd));border-radius:16px}
+.era b{font-size:.85em;line-height:1.25;max-width:170px}.era small{font-size:.7em;color:var(--mu)}
+.cent{position:sticky;top:0;z-index:2;margin:18px 0 6px;background:var(--pr);color:#fff;border-radius:14px;padding:4px 14px;font-weight:800;font-size:.95em}
+.trow{display:flex;gap:12px;align-items:center;width:100%;text-align:left;min-height:0;margin:6px 0;border-left:10px solid var(--c);border-radius:16px;padding:8px 12px}
+.trow .yr{flex:none;width:58px;font-weight:800;color:var(--c)}.trow span{flex:1;line-height:1.35}.trow small{display:block;color:var(--mu);font-size:.72em}
+.tb{width:100%;border-collapse:collapse;font-size:.85em}.tb th,.tb td{border:2px solid var(--bd);padding:6px 8px;text-align:left}.tb th{background:var(--wb)}
+.nr{display:flex;gap:8px;margin:10px 0}.nr input{font:inherit;flex:1;min-width:0;padding:10px;border:3px solid var(--bd);border-radius:14px;background:var(--cd);color:var(--tx)}
+.foot{text-align:center;color:var(--mu);font-size:.72em;margin:26px 0 0}
+
+/* ===== Tiêu đề kiểu trang Toán: khối màu bo tròn, vòng tròn mờ, chữ mờ trang trí ===== */
+.cv:before,.cv:after,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14);pointer-events:none}
+.cv:after,.hero:after{width:110px;height:110px;right:70px;bottom:-60px}
+/* thanh trên: nút tròn, bóng nhẹ như trang Toán */
+.top button,.top .btn{border:0;border-radius:999px;background:var(--cd);box-shadow:0 3px 10px #1d24331a;font-weight:600}
+.top .on{box-shadow:0 3px 10px #b4530955}
+/* tiêu đề từng bài và trang chủ môn: cùng kiểu */
+.hero{border-radius:30px;box-shadow:0 16px 36px color-mix(in srgb,var(--c) 38%,transparent)}
+.hero small{display:inline-block;background:rgba(255,255,255,.22);border-radius:999px;padding:2px 12px;letter-spacing:0;text-transform:none;font-weight:700;opacity:1;margin-bottom:4px}
+/* hai thẻ chọn mức: giống thẻ bài của trang Toán */
+.lv{border:0;border-radius:26px;box-shadow:0 5px 18px #1d243318;position:relative;transition:transform .18s,box-shadow .18s}
+.lv:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:7px;border-radius:0 7px 7px 0;background:var(--lc)}
+.lv:hover{transform:translateY(-3px);box-shadow:0 12px 28px #1d24332b}
+.lv .lh{background:none;color:var(--tx);padding:18px 18px 0 24px;font-size:1.1em}
+.lv .lh small{display:inline-block;background:var(--lc);color:#fff;border-radius:999px;padding:1px 12px;font-size:.62em;letter-spacing:0;text-transform:none;opacity:1;margin-bottom:6px}
+.lv .lb{padding:8px 18px 18px 24px}
+.lv .ch i{border-width:1px;background:color-mix(in srgb,var(--lc) 10%,var(--cd))}
+.lv .go{box-shadow:0 4px 12px color-mix(in srgb,var(--lc) 40%,transparent)}
+
+
+/* ===== Trang đầu: kiểu giấy như trang Toán, đổi sang tông cam đỏ của Lịch sử ===== */
+body.paper{background:#fbf6ea;background-image:radial-gradient(#e6d9bb 1px,transparent 1.5px);background-size:22px 22px;color:#2b2622}
+.p1 .ppt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.p1 .gap{flex:1 1 auto}
+.p1 .ppt .btn,.p1 .ppt button{min-height:42px;min-width:42px;padding:2px 14px;border-radius:999px;font-size:.78em;background:#fffaf0!important;color:#3b2f2a!important;border:1.5px solid #3b2f2a!important;box-shadow:none;white-space:nowrap;flex:0 0 auto;width:auto}
+.p1 .ppt .on{background:#3b2f2a!important;color:#fde68a!important}
+.p1 .tf{position:relative;margin:16px 2px 8px;padding:12px 12px 10px;border:5px solid transparent;border-radius:32px;background:linear-gradient(#fffdf6,#fffdf6) padding-box,linear-gradient(135deg,#f59e0b 0%,#ea580c 52%,#be123c 100%) border-box;box-shadow:0 12px 28px rgba(190,18,60,.2)}
+.p1 .tf:before{content:"";position:absolute;inset:6px;border:2px dashed rgba(59,47,42,.32);border-radius:24px;pointer-events:none}
+.p1 .swash{display:block;width:min(100%,520px);margin:2px auto 0;height:auto}
+.p1 .tw{position:relative;padding:0 clamp(26px,9vw,56px);margin-bottom:2px}
+.p1 .tn{display:flex;flex-direction:column;align-items:center;margin:4px 0 2px;text-align:center;font-weight:800;letter-spacing:-.01em;color:#2b2622;line-height:1}
+.p1 .l1{font-size:clamp(20px,5.2vw,34px);line-height:1.12}
+.p1 .l2{font-size:clamp(44px,13vw,76px);line-height:1;white-space:nowrap}
+.p1 .bf{position:absolute;pointer-events:none;filter:drop-shadow(0 3px 3px rgba(80,50,10,.25))}
+.p1 .bf.tl{width:56px;left:2px;top:-4px;transform:rotate(-20deg)}
+.p1 .bf.tr{width:62px;right:2px;top:10px;transform:rotate(16deg)}
+@media(prefers-reduced-motion:no-preference){.p1 .bf.tl{animation:flt 5s ease-in-out infinite}.p1 .bf.tr{animation:flt 6s ease-in-out infinite reverse}@keyframes flt{50%{translate:0 -6px}}}
+.p1 .subl{text-align:center;font-size:.82em;font-style:italic;color:#6b4a2b;margin:4px 0 0}
+.p1 .pjn{display:flex;align-items:center;gap:12px;max-width:600px;margin:6px auto 2px}
+.p1 .pjn i{flex:1;height:1px;background:#3b2f2a;opacity:.4}
+.p1 .pjn span{font-size:.6em;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.75;color:#6b4a2b;font-weight:600}
+.p1 .pk2{font-weight:800;font-size:clamp(20px,5.4vw,30px);line-height:1.35;text-align:center;margin:20px 0 6px;color:#2b2622}
+.p1 .pk2:after{content:"▼";display:block;color:#f59e0b;font-size:.7em;line-height:1;margin-top:6px}
+.p1 .lvs{display:grid;gap:26px;margin:10px 0 6px}
+@media(min-width:760px){.p1 .lvs{grid-template-columns:1fr 1fr}}
+.p1 .lvc{display:block;text-align:left;border:6px solid var(--lc);border-radius:32px;background:var(--lbg);overflow:hidden;color:#1f2937;box-shadow:0 10px 0 var(--lsh),0 20px 34px rgba(0,0,0,.14);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.p1 .lvc:hover,.p1 .lvc:focus-visible{outline:6px solid #f59e0b;outline-offset:4px}
+@media(prefers-reduced-motion:no-preference){.p1 .lvc:hover{transform:translateY(-6px)}}
+.p1 .lvc:active{transform:translateY(3px)}
+.p1 .lp{display:block;line-height:0;border-bottom:6px solid var(--lc)}
+.p1 .lp svg{display:block;width:100%;height:auto}
+.p1 .lb2{display:block;padding:16px 18px 20px}
+.p1 .lvc small{display:inline-block;background:var(--lc);color:#fff;font-size:.95em;font-weight:800;letter-spacing:.1em;padding:5px 18px;border-radius:999px;margin-bottom:10px}
+.p1 .lt4{display:block;font-weight:800;font-size:1.5em;line-height:1.25;color:var(--lsh);margin:0 0 8px}
+.p1 .ld{display:block;font-size:.92em;line-height:1.75;color:#1f2937}
+.p1 .ch{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.p1 .ch i{font-style:normal;font-size:.78em;border:2px solid var(--lc);border-radius:999px;padding:3px 11px;background:#fff;color:var(--lsh);font-weight:700}
+.p1 .lg2{display:flex;justify-content:center;width:100%;background:var(--lc);color:#fff;font-weight:800;font-size:1.15em;padding:16px 20px;border-radius:20px;box-shadow:0 6px 0 var(--lsh)}
+@media(max-width:520px){.p1 .tf{margin:12px 0 6px;padding:10px 8px 8px;border-width:4px;border-radius:26px}.p1 .tf:before{inset:5px;border-radius:20px}.p1 .bf.tl{width:40px}.p1 .bf.tr{width:44px}}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+</style></head><body><div id="app"></div><noscript>Trang này cần bật JavaScript để chạy.</noscript>
+<script>
+/* ================= Tiện ích ================= */
+const A=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const R=a=>a[Math.floor(Math.random()*a.length)];
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const rom=n=>{const m=[[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];let s='';m.forEach(([v,r])=>{while(n>=v){s+=r;n-=v}});return s};
+const KEY='lichsu7v1';
+let ST={lv:0,big:0,say:1,name:'',p:{}};
+try{Object.assign(ST,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(ST))}catch(e){}};
+const P=id=>ST.p[id]||(ST.p[id]={s:{},best:null,n:0});
+
+/* ================= Giọng đọc Tiếng Việt (chạy trên mọi máy) =================
+   1) Dùng giọng vi-VN có sẵn trong máy (ưu tiên giọng tự nhiên/online).
+   2) Máy không có giọng Tiếng Việt: đọc qua mạng (cần internet), không bao giờ đọc bằng giọng nước khác.
+   3) Hiện dòng báo nhỏ ở cuối màn hình khi đang đọc qua mạng hoặc khi không đọc được. */
+const SS=window.speechSynthesis;let VOICE=null,GID=0,AU=null,NOTE=null;
+const isVi=v=>/^vi([-_]|$)/i.test(v.lang)||/vietnam|ti[eế]ng vi[eệ]t|hoaimy|namminh/i.test(v.name);
+const scV=v=>(/natural|online/i.test(v.name)?4:0)+(/google/i.test(v.name)?3:0)+(/microsoft/i.test(v.name)?2:0);
+function pickV(){if(!SS)return;try{VOICE=SS.getVoices().filter(isVi).sort((a,b)=>scV(b)-scV(a))[0]||null}catch(e){}}
+if(SS){pickV();SS.onvoiceschanged=pickV;let n=0;const t=setInterval(()=>{if(VOICE||++n>10)clearInterval(t);else pickV()},500)}
+{const m=document.createElement('meta');m.name='referrer';m.content='no-referrer';document.head.appendChild(m)}
+function note(msg,warn){if(!NOTE){NOTE=document.createElement('div');NOTE.setAttribute('role','status');NOTE.style.cssText='position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:70;padding:8px 12px;border-radius:14px;font-size:14px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.2);display:none';document.body.appendChild(NOTE)}
+ if(!msg){NOTE.style.display='none';return}NOTE.textContent=msg;NOTE.style.background=warn?'#fee2e2':'#fff4dc';NOTE.style.color=warn?'#991b1b':'#7c2d12';NOTE.style.display='block';clearTimeout(NOTE._t);NOTE._t=setTimeout(()=>{NOTE.style.display='none'},warn?9000:5000)}
+const clean=t=>String(t).replace(/<[^>]+>/g,' ').replace(/\p{Extended_Pictographic}|[️‍✓⬅➡▶]/gu,' ').replace(/[–—]/g,', ').replace(/\bTK\b/g,'thế kỉ').replace(/(kỉ|TK)\s+([IVX]{1,6})\b/g,(m,a,r)=>{const v={I:1,V:5,X:10};let n=0;for(let i=0;i<r.length;i++){const c=v[r[i]],d=v[r[i+1]]||0;n+=c<d?-c:c}return a+' '+n}).replace(/(\d),(\d)/g,'$1 phẩy $2').replace(/\s+/g,' ').trim();
+const chunks=t=>{const o=[];(t.match(/[^.!?;:]+[.!?;:]*/g)||[t]).forEach(p=>{p=p.trim();while(p.length>170){let i=p.lastIndexOf(' ',170);if(i<50)i=170;o.push(p.slice(0,i));p=p.slice(i).trim()}if(/[\p{L}\d]/u.test(p))o.push(p)});return o};
+function stopS(){GID++;try{if(AU){AU.pause();AU=null}}catch(e){}try{SS&&SS.cancel()}catch(e){}}
+function netSpeak(t){stopS();const id=GID,q=chunks(clean(t));let fail=0;
+ note('Máy chưa có giọng Tiếng Việt nên đang đọc qua mạng (cần internet).');
+ (function nx(i){if(id!==GID||i>=q.length)return;const a=AU=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(q[i]));a.playbackRate=.9;a.onended=()=>nx(i+1);
+  a.onerror=()=>{if(id===GID&&!fail++)note('Không đọc được qua mạng. Em kiểm tra internet, hoặc cài giọng Tiếng Việt cho máy (Cài đặt › Ngôn ngữ › Tiếng Việt › Giọng nói).',1)};
+  const p=a.play();if(p&&p.catch)p.catch(()=>{if(id===GID&&!fail++)note('Trình duyệt chưa cho phát tiếng. Em bấm nút 🔊 một lần nữa nhé.',1)})})(0)}
+function speak(t){if(!t)return;t=clean(t);if(!t)return;
+ if(!SS)return netSpeak(t);if(!VOICE)pickV();
+ let n=0;try{n=SS.getVoices().length}catch(e){}
+ if(!VOICE&&n)return netSpeak(t);              /* có giọng nhưng không có Tiếng Việt: đọc qua mạng, không đọc sai tiếng */
+ stopS();const id=GID;
+ setTimeout(()=>{if(id!==GID)return;try{chunks(t).forEach(s=>{const u=new SpeechSynthesisUtterance(s);
+  if(VOICE){u.voice=VOICE;u.lang=/^vi/i.test(VOICE.lang)?VOICE.lang.replace('_','-'):'vi-VN'}else u.lang='vi-VN';
+  u.rate=.88;SS.speak(u)})}catch(e){netSpeak(t)}},80)}
+const sp=b=>speak(b.dataset.t);
+const sayB=t=>`<button class="say" data-t="${esc(t)}" onclick="sp(this)" aria-label="Nghe đọc">🔊</button>`;
+
+/* ================= DỮ LIỆU BÀI HỌC ================= */
+const LS={
+pk:{bai:2,ic:'⛵',t:'Các cuộc phát kiến địa lí và sự hình thành quan hệ sản xuất tư bản chủ nghĩa ở Tây Âu',per:'Thế kỉ XV – XVI',col:'#0e7490',
+ goal:'Em biết vì sao người châu Âu đi tìm đường biển mới, các chuyến đi nổi tiếng và quan hệ sản xuất tư bản chủ nghĩa bắt đầu hình thành thế nào.',
+ key:[{e:'🧭',t:'Người châu Âu muốn tìm đường biển đến phương Đông để buôn bán hương liệu, vàng bạc.'},
+  {e:'⚓',t:'Họ có la bàn, thuyền buồm lớn và bản đồ tốt hơn nên dám đi xa trên biển.'},
+  {e:'🌎',t:'Năm 1492, Cô-lôm-bô đến châu Mĩ. Năm 1498, Va-xcô đa Ga-ma đến Ấn Độ bằng đường biển.'},
+  {e:'🌍',t:'Năm 1519, đoàn thuyền của Ma-gien-lăng bắt đầu chuyến đi vòng quanh Trái Đất, chứng minh Trái Đất hình cầu.'},
+  {e:'🏭',t:'Phát kiến địa lí mang về nhiều vàng bạc và mở rộng buôn bán. Thương nhân, chủ xưởng giàu có mở công trường thủ công và thuê công nhân làm việc. Đó là quan hệ sản xuất tư bản chủ nghĩa.'}],
+ more:['Chủ xưởng (tư sản) bỏ vốn mở xưởng, công nhân làm thuê và nhận tiền công. Đây là quan hệ khác với quan hệ giữa lãnh chúa và nông nô.','Các chuyến đi mở ra đường biển nối nhiều châu lục, việc buôn bán giữa các nước phát triển hơn.','Nhưng người châu Âu cũng cướp bóc tài nguyên và xâm chiếm đất đai của nhiều dân tộc.'],
+ tip:'Nhớ: 1492 – Cô-lôm-bô – châu Mĩ.',
+ tl:[{y:1487,s:'1487',t:'Đi-a-xơ đến mũi Hảo Vọng',d:'Ba-tô-lô-mê-ô Đi-a-xơ đi đến cực nam của châu Phi.'},
+  {y:1492,s:'1492',t:'Cô-lôm-bô đến châu Mĩ',d:'Cô-lôm-bô đi thuyền từ Tây Ban Nha, đến vùng đất mới là châu Mĩ.'},
+  {y:1498,s:'1498',t:'Va-xcô đa Ga-ma đến Ấn Độ',d:'Ông đi vòng qua châu Phi và đến Ấn Độ bằng đường biển.'},
+  {y:1519,s:'1519',t:'Ma-gien-lăng bắt đầu đi vòng quanh Trái Đất',d:'Chuyến đi kết thúc năm 1522. Chuyến đi chứng minh Trái Đất hình cầu.'}],
+ ppl:[{ic:'🌎',n:'Cô-lôm-bô',r:'Nhà hàng hải',d:'Năm 1492, ông đến châu Mĩ trong chuyến đi từ Tây Ban Nha.'},
+  {ic:'🇮🇳',n:'Va-xcô đa Ga-ma',r:'Nhà hàng hải Bồ Đào Nha',d:'Ông tìm ra đường biển từ châu Âu sang Ấn Độ (1498).'},
+  {ic:'🌍',n:'Ma-gien-lăng',r:'Nhà hàng hải',d:'Ông chỉ huy đoàn thuyền đi vòng quanh Trái Đất. Ông mất trên đường đi (1521) nhưng đoàn thuyền vẫn về được châu Âu.'}],
+ qs:[{t:'mc',q:'Năm 1492, ai đã đến châu Mĩ?',o:['Cô-lôm-bô','Va-xcô đa Ga-ma','Ma-gien-lăng'],a:0,h:['Ông xuất phát từ Tây Ban Nha.','Tên ông bắt đầu bằng “Cô”.']},
+  {t:'mc',q:'Va-xcô đa Ga-ma đã đến nơi nào bằng đường biển?',o:['Ấn Độ','châu Mĩ','Việt Nam'],a:0,h:['Ông đi vòng qua châu Phi.']},
+  {t:'mc',q:'Chuyến đi của Ma-gien-lăng chứng minh điều gì?',o:['Trái Đất hình cầu','Trái Đất phẳng','Trái Đất rất nhỏ'],a:0,h:['Đi mãi về một hướng thì quay về chỗ cũ.']},
+  {t:'tf',q:'La bàn giúp thủy thủ biết phương hướng trên biển.',a:true,h:['La bàn có kim chỉ hướng Bắc – Nam.']},
+  {t:'mc',q:'Chủ xưởng thuê công nhân làm việc là biểu hiện của quan hệ sản xuất nào?',o:['Tư bản chủ nghĩa','Phong kiến','Công xã nguyên thủy'],a:0,h:['Quan hệ giữa chủ xưởng (tư sản) và công nhân làm thuê.']},
+  {t:'sort',q:'Sắp xếp các chuyến đi theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Đi-a-xơ đến mũi Hảo Vọng',y:1487},{t:'Cô-lôm-bô đến châu Mĩ',y:1492},{t:'Va-xcô đa Ga-ma đến Ấn Độ',y:1498},{t:'Ma-gien-lăng đi vòng quanh Trái Đất',y:1519}],h:['Năm nhỏ hơn thì xảy ra sớm hơn.']},
+  {t:'match',q:'Nối nhà hàng hải với việc làm của họ.',p:[['Cô-lôm-bô','Đến châu Mĩ'],['Va-xcô đa Ga-ma','Đến Ấn Độ bằng đường biển'],['Ma-gien-lăng','Đi vòng quanh Trái Đất']],h:['Nhớ lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'⛵',t:'Người châu Âu đi thuyền để tìm đường buôn bán.'},{e:'🌎',t:'Cô-lôm-bô đi thuyền đến châu Mĩ.'},{e:'🌍',t:'Trái Đất hình cầu.'}],
+  qs:[{q:'Cô-lôm-bô đi bằng gì?',o:['Thuyền buồm','Máy bay'],a:0},{q:'Cô-lôm-bô đến châu nào?',o:['Châu Mĩ','Châu Cực'],a:0},{q:'Trái Đất có hình gì?',o:['Hình cầu','Hình vuông'],a:0}]}},
+
+dtl:{bai:10,ic:'🏯',t:'Đại Cồ Việt thời Đinh và Tiền Lê (968 – 1009)',per:'Năm 968 – 1009',col:'#7c3aed',
+ goal:'Em biết ai thống nhất đất nước năm 968, tên nước và kinh đô thời Đinh, và Lê Hoàn đánh tan quân Tống.',
+ key:[{e:'🛡️',t:'Cuối thời Ngô, đất nước loạn lạc, có 12 sứ quân chia nhau cát cứ. Đinh Bộ Lĩnh dẹp loạn, thống nhất đất nước.'},
+  {e:'👑',t:'Năm 968, Đinh Bộ Lĩnh lên ngôi hoàng đế, đặt tên nước là Đại Cồ Việt, đóng đô ở Hoa Lư (Ninh Bình).'},
+  {e:'⚔️',t:'Năm 980, Lê Hoàn lên ngôi, lập nhà Tiền Lê. Năm 981, ông chỉ huy đánh tan quân Tống xâm lược.'},
+  {e:'⛰️',t:'Kinh đô Hoa Lư có núi non hiểm trở nên dễ phòng thủ.'}],
+ more:['Đinh Bộ Lĩnh đặt niên hiệu Thái Bình. Việc đặt niên hiệu riêng cho thấy nước ta là một nước độc lập.','Khi Đinh Tiên Hoàng mất, vua còn nhỏ, quân Tống chuẩn bị xâm lược. Thái hậu Dương Vân Nga và triều thần suy tôn Lê Hoàn lên làm vua để lo việc chống giặc.'],
+ tip:'Nhớ: 968 – Đinh Bộ Lĩnh – Đại Cồ Việt – Hoa Lư.',
+ tl:[{y:968,s:'968',t:'Đinh Bộ Lĩnh lên ngôi, lập nước Đại Cồ Việt',d:'Sau khi dẹp loạn 12 sứ quân, ông lên ngôi hoàng đế (Đinh Tiên Hoàng) và đóng đô ở Hoa Lư.'},
+  {y:970,s:'970',t:'Đặt niên hiệu Thái Bình',d:'Niên hiệu riêng cho thấy nước ta độc lập.'},
+  {y:979,s:'979',t:'Đinh Tiên Hoàng bị ám hại',d:'Con trai còn nhỏ lên nối ngôi, triều đình rối ren.'},
+  {y:980,s:'980',t:'Lê Hoàn lên ngôi, lập nhà Tiền Lê',d:'Triều đình suy tôn Lê Hoàn để chống quân Tống.'},
+  {y:981,s:'981',t:'Lê Hoàn đánh tan quân Tống',d:'Quân Tống bị đánh bại ở Bạch Đằng và Chi Lăng.'},
+  {y:1009,s:'1009',t:'Nhà Tiền Lê kết thúc',d:'Vua Lê Long Đĩnh mất, Lý Công Uẩn được triều thần suy tôn lên ngôi, mở đầu nhà Lý.'}],
+ ppl:[{ic:'👑',n:'Đinh Bộ Lĩnh',r:'Vua Đinh Tiên Hoàng',d:'Dẹp loạn 12 sứ quân, thống nhất đất nước, lập nước Đại Cồ Việt năm 968.'},
+  {ic:'🛡️',n:'Lê Hoàn',r:'Vua Lê Đại Hành',d:'Lên ngôi năm 980, chỉ huy đánh tan quân Tống năm 981.'},
+  {ic:'👸',n:'Dương Vân Nga',r:'Thái hậu',d:'Bà cùng triều thần ủng hộ Lê Hoàn lên làm vua để lo chống giặc.'}],
+ qs:[{t:'mc',q:'Ai thống nhất đất nước năm 968?',o:['Đinh Bộ Lĩnh','Lê Hoàn','Lý Công Uẩn'],a:0,h:['Vua có hiệu là Đinh Tiên Hoàng.','Ông dẹp loạn 12 sứ quân.']},
+  {t:'mc',q:'Tên nước thời Đinh là gì?',o:['Đại Cồ Việt','Đại Việt','Đại Ngu'],a:0,h:['Tên nước có chữ “Cồ”.']},
+  {t:'mc',q:'Kinh đô thời Đinh – Tiền Lê đặt ở đâu?',o:['Hoa Lư','Thăng Long','Tây Đô'],a:0,h:['Kinh đô ở Ninh Bình, có núi non hiểm trở.']},
+  {t:'tf',q:'Lê Hoàn chỉ huy đánh tan quân Tống năm 981.',a:true,h:['Lê Hoàn lập nhà Tiền Lê năm 980.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Đinh Bộ Lĩnh lên ngôi',y:968},{t:'Lê Hoàn lên ngôi',y:980},{t:'Đánh tan quân Tống',y:981},{t:'Lý Công Uẩn lên ngôi',y:1009}],h:['Nhà Đinh trước, rồi Tiền Lê, rồi nhà Lý.']},
+  {t:'match',q:'Nối nhân vật hoặc địa danh với ý nghĩa.',p:[['Đinh Bộ Lĩnh','Dẹp loạn 12 sứ quân'],['Lê Hoàn','Đánh tan quân Tống'],['Hoa Lư','Kinh đô thời Đinh']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'👑',t:'Đinh Bộ Lĩnh làm vua. Nước tên là Đại Cồ Việt.'},{e:'🏯',t:'Kinh đô ở Hoa Lư.'},{e:'🛡️',t:'Lê Hoàn đánh giặc Tống.'}],
+  qs:[{q:'Ai làm vua nước Đại Cồ Việt?',o:['Đinh Bộ Lĩnh','Lê Hoàn'],a:0},{q:'Kinh đô thời Đinh ở đâu?',o:['Hoa Lư','Thăng Long'],a:0},{q:'Lê Hoàn đánh giặc nào?',o:['Giặc Tống','Giặc Minh'],a:0}]}},
+
+ly:{bai:11,ic:'🐲',t:'Nhà Lý xây dựng và phát triển đất nước (1009 – 1225)',per:'Năm 1009 – 1225',col:'#d97706',
+ goal:'Em biết nhà Lý dời đô ra Thăng Long và những việc làm về luật pháp, giáo dục.',
+ key:[{e:'👑',t:'Năm 1009, Lý Công Uẩn lên ngôi vua, lập ra nhà Lý.'},
+  {e:'🐉',t:'Năm 1010, vua dời đô từ Hoa Lư ra Đại La và đổi tên là Thăng Long, nghĩa là rồng bay lên. Nay là Hà Nội.'},
+  {e:'📜',t:'Nhà Lý có bộ luật đầu tiên là Hình thư (1042). Năm 1054, nước ta có tên là Đại Việt.'},
+  {e:'🎓',t:'Năm 1070 lập Văn Miếu, năm 1075 mở khoa thi đầu tiên, năm 1076 lập Quốc Tử Giám.'}],
+ more:['Thăng Long là vùng đất rộng, bằng phẳng, thuận lợi để phát triển kinh tế và văn hóa.','Đạo Phật rất thịnh hành thời Lý. Nhiều chùa, tháp được xây dựng, trong đó có chùa Một Cột.'],
+ tip:'Nhớ: 1010 – dời đô – Thăng Long.',
+ tl:[{y:1009,s:'1009',t:'Lý Công Uẩn lên ngôi, lập nhà Lý',d:'Ông được triều thần suy tôn sau khi nhà Tiền Lê kết thúc.'},
+  {y:1010,s:'1010',t:'Dời đô ra Thăng Long',d:'Vua Lý Thái Tổ dời đô từ Hoa Lư ra Đại La, đổi tên là Thăng Long.'},
+  {y:1042,s:'1042',t:'Ban hành bộ luật Hình thư',d:'Đây là bộ luật đầu tiên của nước ta.'},
+  {y:1054,s:'1054',t:'Đổi tên nước là Đại Việt',d:'Vua Lý Thánh Tông đặt quốc hiệu Đại Việt.'},
+  {y:1070,s:'1070',t:'Lập Văn Miếu',d:'Văn Miếu là nơi thờ Khổng Tử và là nơi học tập, được xây ở Thăng Long.'},
+  {y:1075,s:'1075',t:'Mở khoa thi đầu tiên',d:'Vua Lý Nhân Tông cho mở khoa thi để chọn người giỏi ra làm quan.'},
+  {y:1225,s:'1225',t:'Nhà Lý kết thúc',d:'Cuối năm 1225, Lý Chiêu Hoàng nhường ngôi cho Trần Cảnh.'}],
+ ppl:[{ic:'👑',n:'Lý Công Uẩn',r:'Vua Lý Thái Tổ',d:'Người lập nhà Lý, dời đô ra Thăng Long năm 1010.'},
+  {ic:'📚',n:'Lý Thánh Tông',r:'Vua nhà Lý',d:'Đặt tên nước là Đại Việt (1054) và cho lập Văn Miếu (1070).'},
+  {ic:'🎓',n:'Lý Nhân Tông',r:'Vua nhà Lý',d:'Mở khoa thi đầu tiên năm 1075 để chọn người giỏi.'}],
+ qs:[{t:'mc',q:'Năm 1010, vua Lý Thái Tổ làm gì?',o:['Dời đô ra Thăng Long','Dời đô vào Huế','Dẹp 12 sứ quân'],a:0,h:['Kinh đô mới nay là Hà Nội.']},
+  {t:'mc',q:'Thăng Long nghĩa là gì?',o:['Rồng bay lên','Rồng nằm ngủ','Rồng lặn xuống'],a:0,h:['“Thăng” là bay lên, “Long” là rồng.']},
+  {t:'mc',q:'Từ năm 1054, tên nước ta là gì?',o:['Đại Việt','Đại Cồ Việt','Đại Ngu'],a:0,h:['Dưới thời vua Lý Thánh Tông.']},
+  {t:'tf',q:'Văn Miếu được lập năm 1070.',a:true,h:['Văn Miếu ở Thăng Long.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Dời đô ra Thăng Long',y:1010},{t:'Đổi tên nước là Đại Việt',y:1054},{t:'Lập Văn Miếu',y:1070},{t:'Mở khoa thi đầu tiên',y:1075}],h:['Dời đô là việc làm đầu tiên của nhà Lý.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Hình thư','Bộ luật đầu tiên'],['Thăng Long','Kinh đô của nhà Lý'],['Văn Miếu','Nơi thờ Khổng Tử']],h:['Xem lại dòng thời gian.']}],
+ easy:{facts:[{e:'🐉',t:'Vua Lý Thái Tổ dời đô ra Thăng Long.'},{e:'📜',t:'Nhà Lý có bộ luật Hình thư.'},{e:'🎓',t:'Nhà Lý mở trường học và khoa thi.'}],
+  qs:[{q:'Kinh đô nhà Lý là gì?',o:['Thăng Long','Hoa Lư'],a:0},{q:'Ai dời đô ra Thăng Long?',o:['Lý Công Uẩn','Lê Hoàn'],a:0},{q:'Thăng Long bây giờ là thành phố nào?',o:['Hà Nội','Huế'],a:0}]}},
+
+tong:{bai:12,ic:'⚔️',t:'Cuộc kháng chiến chống quân xâm lược Tống (1075 – 1077)',per:'Năm 1075 – 1077',col:'#dc2626',
+ goal:'Em biết Lý Thường Kiệt chỉ huy kháng chiến, phòng tuyến sông Như Nguyệt và bài thơ “Nam quốc sơn hà”.',
+ key:[{e:'🧠',t:'Biết nhà Tống chuẩn bị đánh nước ta, năm 1075 Lý Thường Kiệt chủ động đem quân đánh sang Ung Châu, Khâm Châu, Liêm Châu để phá nơi tích trữ lương thực của giặc.'},
+  {e:'🛡️',t:'Cuối năm 1076, quân Tống do Quách Quỳ chỉ huy tiến vào nước ta. Lý Thường Kiệt xây phòng tuyến trên sông Như Nguyệt (sông Cầu).'},
+  {e:'📜',t:'Bài thơ “Nam quốc sơn hà” khẳng định nước Nam là của người Nam. Bài thơ được coi là bản tuyên ngôn độc lập đầu tiên của nước ta.'},
+  {e:'🕊️',t:'Quân Tống thua. Năm 1077, Lý Thường Kiệt chủ động giảng hòa, quân Tống rút về nước.'}],
+ more:['Đánh trước để phòng thủ là cách “tiến công để tự vệ” rất sáng tạo của Lý Thường Kiệt.','Quân Tống đông nhưng không vượt được phòng tuyến sông Như Nguyệt, lại thiếu lương thực và nhiều người bị bệnh nên suy yếu.'],
+ tip:'Nhớ: Lý Thường Kiệt – sông Như Nguyệt – Nam quốc sơn hà.',
+ tl:[{y:1075,s:'1075',t:'Lý Thường Kiệt tiến công sang đất Tống',d:'Ông đánh Ung Châu, Khâm Châu, Liêm Châu để phá kế hoạch của giặc.'},
+  {y:1076,s:'1076',t:'Xây phòng tuyến sông Như Nguyệt',d:'Quân Tống do Quách Quỳ chỉ huy tiến vào nước ta cuối năm 1076.'},
+  {y:1077,s:'1077',t:'Quân Tống bị đánh bại ở sông Như Nguyệt',d:'Quân ta đánh trả quyết liệt, quân Tống bị chặn lại.'},
+  {y:1077,s:'1077',t:'Lý Thường Kiệt chủ động giảng hòa',d:'Quân Tống rút về nước, nước ta giữ được độc lập.'}],
+ ppl:[{ic:'🧠',n:'Lý Thường Kiệt',r:'Danh tướng nhà Lý',d:'Chỉ huy cuộc kháng chiến chống Tống (1075 – 1077).'},
+  {ic:'🪖',n:'Quách Quỳ',r:'Tướng nhà Tống',d:'Chỉ huy quân Tống xâm lược nước ta nhưng bị thua.'},
+  {ic:'👑',n:'Lý Nhân Tông',r:'Vua nhà Lý',d:'Lúc đó nhà vua còn nhỏ tuổi.'}],
+ qs:[{t:'mc',q:'Ai chỉ huy cuộc kháng chiến chống Tống thời Lý?',o:['Lý Thường Kiệt','Trần Hưng Đạo','Lê Lợi'],a:0,h:['Ông là danh tướng nhà Lý.']},
+  {t:'mc',q:'Phòng tuyến chống Tống được xây trên sông nào?',o:['Sông Như Nguyệt','Sông Bạch Đằng','Sông Hương'],a:0,h:['Còn gọi là sông Cầu.']},
+  {t:'mc',q:'Bài thơ nào được coi là bản tuyên ngôn độc lập đầu tiên?',o:['Nam quốc sơn hà','Hịch tướng sĩ','Bình Ngô đại cáo'],a:0,h:['Bài thơ nói “nước Nam là của người Nam”.']},
+  {t:'tf',q:'Năm 1075, Lý Thường Kiệt chủ động đánh sang đất Tống.',a:true,h:['Đánh trước để phòng thủ.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Tiến công Ung, Khâm, Liêm',y:1075},{t:'Xây phòng tuyến sông Như Nguyệt',y:1076},{t:'Đánh bại quân Tống, giảng hòa',y:1077}],h:['Đánh trước, rồi xây phòng tuyến, rồi giảng hòa.']},
+  {t:'match',q:'Nối nhân vật hoặc tác phẩm với ý nghĩa.',p:[['Lý Thường Kiệt','Chỉ huy kháng chiến'],['Quách Quỳ','Tướng giặc nhà Tống'],['Nam quốc sơn hà','Bài thơ khẳng định độc lập']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🛡️',t:'Lý Thường Kiệt đánh giặc Tống.'},{e:'🌊',t:'Phòng tuyến ở sông Như Nguyệt.'},{e:'📜',t:'Bài thơ Nam quốc sơn hà nói nước Nam là của người Nam.'}],
+  qs:[{q:'Ai đánh giặc Tống?',o:['Lý Thường Kiệt','Lê Lợi'],a:0},{q:'Phòng tuyến chống Tống ở sông nào?',o:['Sông Như Nguyệt','Sông Cửu Long'],a:0},{q:'Bài thơ Nam quốc sơn hà nói điều gì?',o:['Nước Nam là của người Nam','Nước Nam là của giặc'],a:0}]}},
+
+tran:{bai:13,ic:'🏛️',t:'Đại Việt thời Trần (1226 – 1400)',per:'Năm 1226 – 1400',col:'#2563eb',
+ goal:'Em biết nhà Trần thành lập thế nào và những việc làm nổi bật: đắp đê, giáo dục, sử học.',
+ key:[{e:'👑',t:'Cuối năm 1225, Lý Chiêu Hoàng nhường ngôi cho chồng là Trần Cảnh. Năm 1226, nhà Trần được thành lập.'},
+  {e:'🌊',t:'Nhà Trần chú ý đắp đê chống lụt (đặt chức Hà đê sứ năm 1248) và khuyến khích sản xuất nông nghiệp.'},
+  {e:'🎓',t:'Giáo dục, thi cử phát triển. Năm 1253 lập Quốc học viện. Có nhiều thầy giáo giỏi như Chu Văn An.'},
+  {e:'📚',t:'Năm 1272, Lê Văn Hưu hoàn thành bộ sử Đại Việt sử kí. Chữ Nôm phát triển.'}],
+ more:['Nhà Trần có chế độ Thái thượng hoàng: vua cha nhường ngôi cho con nhưng vẫn cùng lo việc nước.','Quân đội thực hiện chính sách “ngụ binh ư nông”: lúc bình thường thì làm ruộng, lúc có chiến tranh thì ra trận.'],
+ tip:'Nhớ: Trần Cảnh – 1226 – nhà Trần.',
+ tl:[{y:1226,s:'1226',t:'Nhà Trần thành lập',d:'Trần Cảnh lên ngôi, tức là vua Trần Thái Tông.'},
+  {y:1248,s:'1248',t:'Đặt chức Hà đê sứ',d:'Chức quan chuyên lo việc đắp đê, giữ đê.'},
+  {y:1253,s:'1253',t:'Lập Quốc học viện',d:'Nơi học tập, giảng dạy cho học trò.'},
+  {y:1272,s:'1272',t:'Hoàn thành Đại Việt sử kí',d:'Lê Văn Hưu biên soạn bộ sử đầu tiên của nước ta.'},
+  {y:1400,s:'1400',t:'Nhà Trần kết thúc',d:'Hồ Quý Ly lên ngôi, lập nhà Hồ.'}],
+ ppl:[{ic:'👑',n:'Trần Thái Tông',r:'Vua đầu tiên nhà Trần',d:'Tên cũ là Trần Cảnh, lên ngôi năm 1226.'},
+  {ic:'🧑‍⚖️',n:'Trần Thủ Độ',r:'Quan đại thần',d:'Có công lớn trong việc xây dựng nhà Trần.'},
+  {ic:'👨‍🏫',n:'Chu Văn An',r:'Thầy giáo nổi tiếng',d:'Ông dạy học giỏi, được nhiều người kính trọng.'},
+  {ic:'📚',n:'Lê Văn Hưu',r:'Nhà sử học',d:'Tác giả bộ Đại Việt sử kí.'}],
+ qs:[{t:'mc',q:'Nhà Trần được thành lập năm nào?',o:['1226','1009','1428'],a:0,h:['Sau nhà Lý.']},
+  {t:'mc',q:'Chức Hà đê sứ lo việc gì?',o:['Đắp đê','Thu thuế','Xây thành'],a:0,h:['“Đê” giúp chống lũ lụt.']},
+  {t:'mc',q:'Ai là tác giả bộ Đại Việt sử kí?',o:['Lê Văn Hưu','Chu Văn An','Nguyễn Trãi'],a:0,h:['Ông là nhà sử học thời Trần.']},
+  {t:'tf',q:'Thời Trần, chữ Nôm phát triển.',a:true,h:['Chữ Nôm là chữ viết riêng của người Việt.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Nhà Trần thành lập',y:1226},{t:'Đặt chức Hà đê sứ',y:1248},{t:'Lập Quốc học viện',y:1253},{t:'Hoàn thành Đại Việt sử kí',y:1272}],h:['Nhà Trần thành lập đầu tiên.']},
+  {t:'match',q:'Nối nhân vật với việc làm.',p:[['Trần Cảnh','Vua đầu tiên nhà Trần'],['Chu Văn An','Thầy giáo nổi tiếng'],['Lê Văn Hưu','Nhà sử học']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'👑',t:'Nhà Trần thành lập năm 1226.'},{e:'🌊',t:'Nhà Trần cho đắp đê chống lụt.'},{e:'📚',t:'Nhà Trần chú ý việc học.'}],
+  qs:[{q:'Nhà Trần cho đắp gì để chống lụt?',o:['Đê','Tháp'],a:0},{q:'Vua đầu tiên nhà Trần là ai?',o:['Trần Cảnh','Lý Công Uẩn'],a:0},{q:'Ai là thầy giáo nổi tiếng thời Trần?',o:['Chu Văn An','Lý Thường Kiệt'],a:0}]}},
+
+mn:{bai:14,ic:'🏹',t:'Ba lần kháng chiến chống quân xâm lược Nguyên – Mông',per:'Năm 1258 – 1288',col:'#4338ca',
+ goal:'Em biết ba lần kháng chiến, những trận thắng lớn và vai trò của Trần Hưng Đạo.',
+ key:[{e:'⚔️',t:'Quân Mông Cổ và quân Nguyên sang xâm lược nước ta ba lần: năm 1258, năm 1285 và năm 1287 – 1288.'},
+  {e:'🗣️',t:'Nhà Trần họp Hội nghị Bình Than (1282) và Hội nghị Diên Hồng (1284). Mọi người đều quyết tâm đánh giặc.'},
+  {e:'🏆',t:'Lần hai, ta thắng ở Hàm Tử, Chương Dương, Tây Kết và giải phóng Thăng Long (1285).'},
+  {e:'🌊',t:'Lần ba, Trần Quốc Tuấn (Trần Hưng Đạo) chỉ huy. Quân ta đóng cọc ngầm trên sông Bạch Đằng và thắng lớn năm 1288.'}],
+ more:['Cả ba lần, quân dân nhà Trần dùng cách “vườn không nhà trống”: rút lui, đem hết lương thực đi, làm giặc thiếu ăn và mệt mỏi rồi mới phản công.','Chiến thắng giúp Đại Việt giữ vững độc lập. Ngày nay nhiều đường phố mang tên Trần Hưng Đạo.'],
+ tip:'Nhớ: 3 lần – 1258, 1285, 1288. Bạch Đằng – Trần Hưng Đạo.',
+ tl:[{y:1258,s:'1258',t:'Lần thứ nhất: thắng ở Đông Bộ Đầu',d:'Quân Mông Cổ bị đánh bại và rút khỏi nước ta.'},
+  {y:1282,s:'1282',t:'Hội nghị Bình Than',d:'Các vương hầu, quan lại bàn kế đánh giặc.'},
+  {y:1284,s:'1284',t:'Hội nghị Diên Hồng',d:'Các bô lão được hỏi ý kiến và cùng hô “Đánh!”.'},
+  {y:1285,s:'1285',t:'Lần thứ hai: thắng ở Hàm Tử, Chương Dương, Tây Kết',d:'Quân ta giải phóng Thăng Long.'},
+  {y:1288,s:'1288',t:'Lần thứ ba: chiến thắng Bạch Đằng',d:'Cọc ngầm trên sông giúp quân ta đánh tan thuyền giặc.'}],
+ ppl:[{ic:'🏹',n:'Trần Hưng Đạo',r:'Tổng chỉ huy kháng chiến',d:'Tên thật là Trần Quốc Tuấn. Ông chỉ huy lần hai và lần ba, viết bài Hịch tướng sĩ để động viên quân sĩ.'},
+  {ic:'🧑‍✈️',n:'Trần Quang Khải',r:'Tướng nhà Trần',d:'Có công trong chiến thắng Chương Dương.'},
+  {ic:'🛡️',n:'Trần Nhật Duật',r:'Tướng nhà Trần',d:'Có công trong chiến thắng Hàm Tử.'},
+  {ic:'🎖️',n:'Trần Bình Trọng',r:'Tướng nhà Trần',d:'Bị giặc bắt nhưng nhất quyết không đầu hàng.'}],
+ qs:[{t:'mc',q:'Quân Mông – Nguyên xâm lược nước ta mấy lần?',o:['3 lần','2 lần','5 lần'],a:0,h:['Năm 1258, 1285 và 1287 – 1288.']},
+  {t:'mc',q:'Ai là tổng chỉ huy kháng chiến lần hai và lần ba?',o:['Trần Hưng Đạo','Lý Thường Kiệt','Lê Lợi'],a:0,h:['Ông tên thật là Trần Quốc Tuấn.']},
+  {t:'mc',q:'Trận thắng lớn năm 1288 diễn ra trên sông nào?',o:['Sông Bạch Đằng','Sông Như Nguyệt','Sông Hương'],a:0,h:['Quân ta đóng cọc ngầm.']},
+  {t:'tf',q:'Hội nghị Diên Hồng hỏi ý kiến các bô lão về việc đánh giặc.',a:true,h:['Các bô lão cùng hô “Đánh!”.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Hội nghị Bình Than',y:1282},{t:'Hội nghị Diên Hồng',y:1284},{t:'Chiến thắng Chương Dương',y:1285},{t:'Chiến thắng Bạch Đằng',y:1288}],h:['Họp bàn trước, đánh thắng sau.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Trần Hưng Đạo','Tổng chỉ huy kháng chiến'],['Diên Hồng','Hội nghị hỏi ý kiến bô lão'],['Bạch Đằng','Trận thắng có cọc ngầm']],h:['Xem lại dòng thời gian.']}],
+ easy:{facts:[{e:'🏹',t:'Trần Hưng Đạo chỉ huy đánh giặc Mông – Nguyên.'},{e:'🌊',t:'Trận Bạch Đằng năm 1288 đánh bại giặc.'},{e:'🤝',t:'Mọi người cùng đồng lòng đánh giặc.'}],
+  qs:[{q:'Ai chỉ huy đánh giặc Mông – Nguyên?',o:['Trần Hưng Đạo','Đinh Bộ Lĩnh'],a:0},{q:'Trận Bạch Đằng diễn ra ở đâu?',o:['Trên sông','Trên núi'],a:0},{q:'Mọi người quyết tâm làm gì?',o:['Đánh giặc','Bỏ chạy'],a:0}]}},
+
+ho:{bai:15,ic:'🏰',t:'Nước Đại Ngu thời Hồ',per:'Năm 1400 – 1407',col:'#0f766e',
+ goal:'Em biết Hồ Quý Ly lập nhà Hồ, thành Tây Đô và vì sao cuộc kháng chiến thất bại.',
+ key:[{e:'👑',t:'Năm 1400, Hồ Quý Ly lập ra nhà Hồ, đặt tên nước là Đại Ngu.'},
+  {e:'🧭',t:'Ông cải cách nhiều mặt: phát hành tiền giấy, hạn chế ruộng đất và nô tì của quý tộc, cải cách thi cử và giáo dục.'},
+  {e:'🏰',t:'Năm 1397 xây thành Tây Đô ở Thanh Hóa. Nay gọi là Thành nhà Hồ, là Di sản thế giới.'},
+  {e:'⚠️',t:'Năm 1406, quân Minh xâm lược. Năm 1407, kháng chiến thất bại, nước ta bị nhà Minh đô hộ.'}],
+ more:['Nhà Hồ cải cách để làm cho đất nước mạnh hơn, nhưng các chính sách chưa được đông đảo nhân dân ủng hộ.','Cuộc kháng chiến thất bại vì nhà Hồ chưa đoàn kết được lòng dân.'],
+ tip:'Nhớ: Hồ Quý Ly – 1400 – Đại Ngu – thành Tây Đô.',
+ tl:[{y:1396,s:'1396',t:'Phát hành tiền giấy',d:'Tiền giấy gọi là “Thông bảo hội sao”.'},
+  {y:1397,s:'1397',t:'Xây thành Tây Đô',d:'Thành xây bằng đá ở Thanh Hóa, nay là Thành nhà Hồ.'},
+  {y:1400,s:'1400',t:'Hồ Quý Ly lập nhà Hồ',d:'Nước có tên là Đại Ngu.'},
+  {y:1406,s:'1406',t:'Quân Minh xâm lược nước ta',d:'Nhà Hồ tổ chức kháng chiến.'},
+  {y:1407,s:'1407',t:'Kháng chiến thất bại',d:'Nước ta bị nhà Minh đô hộ từ năm 1407.'}],
+ ppl:[{ic:'👑',n:'Hồ Quý Ly',r:'Vua đầu tiên nhà Hồ',d:'Người cải cách đất nước, xây thành Tây Đô.'},
+  {ic:'🔧',n:'Hồ Nguyên Trừng',r:'Con trai Hồ Quý Ly',d:'Ông giỏi chế tạo vũ khí, như súng thần cơ.'}],
+ qs:[{t:'mc',q:'Ai lập ra nhà Hồ?',o:['Hồ Quý Ly','Trần Cảnh','Lê Lợi'],a:0,h:['Tên vua trùng với họ của nhà.']},
+  {t:'mc',q:'Tên nước thời Hồ là gì?',o:['Đại Ngu','Đại Việt','Đại Cồ Việt'],a:0,h:['Tên nước có chữ “Ngu”.']},
+  {t:'mc',q:'Thành Tây Đô (Thành nhà Hồ) nay thuộc tỉnh nào?',o:['Thanh Hóa','Ninh Bình','Hải Dương'],a:0,h:['Tỉnh có núi Lam Sơn nổi tiếng.']},
+  {t:'tf',q:'Năm 1407, cuộc kháng chiến chống quân Minh của nhà Hồ thất bại.',a:true,h:['Sau đó nước ta bị đô hộ.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Phát hành tiền giấy',y:1396},{t:'Hồ Quý Ly lập nhà Hồ',y:1400},{t:'Quân Minh xâm lược',y:1406},{t:'Kháng chiến thất bại',y:1407}],h:['Cải cách trước, chiến tranh sau.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Hồ Quý Ly','Người lập nhà Hồ'],['Đại Ngu','Tên nước thời Hồ'],['Tây Đô','Kinh đô mới ở Thanh Hóa']],h:['Xem lại dòng thời gian.']}],
+ easy:{facts:[{e:'👑',t:'Hồ Quý Ly lập nhà Hồ.'},{e:'🏰',t:'Nhà Hồ xây thành Tây Đô.'},{e:'⚠️',t:'Quân Minh xâm lược, nhà Hồ thua.'}],
+  qs:[{q:'Ai lập nhà Hồ?',o:['Hồ Quý Ly','Lê Lợi'],a:0},{q:'Nhà Hồ xây thành nào?',o:['Thành Tây Đô','Chùa Một Cột'],a:0},{q:'Giặc nào xâm lược nhà Hồ?',o:['Quân Minh','Quân Tống'],a:0}]}},
+
+lamson:{bai:16,ic:'🗡️',t:'Khởi nghĩa Lam Sơn',per:'Năm 1418 – 1427',col:'#15803d',
+ goal:'Em biết Lê Lợi, Nguyễn Trãi, các trận thắng lớn và việc lập nhà Hậu Lê.',
+ key:[{e:'🔥',t:'Năm 1418, Lê Lợi dựng cờ khởi nghĩa ở Lam Sơn (Thanh Hóa) chống quân Minh.'},
+  {e:'🧠',t:'Nguyễn Trãi gia nhập nghĩa quân, giúp Lê Lợi bàn kế đánh giặc.'},
+  {e:'🏆',t:'Cuối năm 1426, nghĩa quân thắng ở Tốt Động – Chúc Động. Năm 1427, thắng ở Chi Lăng – Xương Giang, tiêu diệt viện binh của giặc.'},
+  {e:'👑',t:'Giặc xin hòa và rút về nước. Năm 1428, Lê Lợi lên ngôi vua, đặt tên nước là Đại Việt.'}],
+ more:['Lúc đầu nghĩa quân còn yếu, gặp nhiều khó khăn, có lúc phải rút lên núi Chí Linh. Lê Lai đã liều mình mặc áo vua để cứu Lê Lợi.','Sau chiến thắng, Nguyễn Trãi viết Bình Ngô đại cáo, tuyên bố đất nước độc lập.'],
+ tip:'Nhớ: Lê Lợi – Lam Sơn – 1418; lên ngôi – 1428.',
+ tl:[{y:1418,s:'1418',t:'Khởi nghĩa Lam Sơn bùng nổ',d:'Lê Lợi dựng cờ khởi nghĩa ở Lam Sơn, Thanh Hóa.'},
+  {y:1424,s:'1424',t:'Chuyển căn cứ vào Nghệ An',d:'Nghĩa quân chuyển vào Nghệ An để lớn mạnh hơn.'},
+  {y:1426,s:'1426',t:'Thắng Tốt Động – Chúc Động',d:'Nghĩa quân tiến ra Bắc và giành thắng lợi lớn.'},
+  {y:1427,s:'1427',t:'Thắng Chi Lăng – Xương Giang',d:'Tiêu diệt viện binh của giặc, buộc giặc phải xin hòa.'},
+  {y:1428,s:'1428',t:'Lê Lợi lên ngôi vua',d:'Ông trở thành vua Lê Thái Tổ, lập nhà Hậu Lê.'}],
+ ppl:[{ic:'👑',n:'Lê Lợi',r:'Lãnh tụ khởi nghĩa',d:'Dựng cờ khởi nghĩa Lam Sơn, sau này là vua Lê Thái Tổ.'},
+  {ic:'🖋️',n:'Nguyễn Trãi',r:'Nhà chiến lược, nhà văn',d:'Giúp Lê Lợi đánh giặc, viết Bình Ngô đại cáo.'},
+  {ic:'🛡️',n:'Lê Lai',r:'Tướng của nghĩa quân',d:'Liều mình cứu Lê Lợi vào năm 1418.'}],
+ qs:[{t:'mc',q:'Ai lãnh đạo khởi nghĩa Lam Sơn?',o:['Lê Lợi','Nguyễn Huệ','Trần Hưng Đạo'],a:0,h:['Sau này ông là vua Lê Thái Tổ.']},
+  {t:'mc',q:'Khởi nghĩa Lam Sơn bùng nổ năm nào?',o:['1418','1288','1789'],a:0,h:['Đầu thế kỉ XV.']},
+  {t:'mc',q:'Ai là tác giả Bình Ngô đại cáo?',o:['Nguyễn Trãi','Lê Lợi','Lý Thường Kiệt'],a:0,h:['Ông là quân sư của Lê Lợi.']},
+  {t:'tf',q:'Lê Lợi lên ngôi vua năm 1428.',a:true,h:['Sau khi đánh đuổi quân Minh.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Khởi nghĩa Lam Sơn bùng nổ',y:1418},{t:'Thắng Tốt Động – Chúc Động',y:1426},{t:'Thắng Chi Lăng – Xương Giang',y:1427},{t:'Lê Lợi lên ngôi vua',y:1428}],h:['Khởi nghĩa trước, lên ngôi sau cùng.']},
+  {t:'match',q:'Nối nhân vật với việc làm.',p:[['Lê Lợi','Lãnh tụ khởi nghĩa'],['Nguyễn Trãi','Viết Bình Ngô đại cáo'],['Lê Lai','Liều mình cứu Lê Lợi']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🔥',t:'Lê Lợi khởi nghĩa ở Lam Sơn.'},{e:'🧠',t:'Nguyễn Trãi giúp Lê Lợi.'},{e:'👑',t:'Lê Lợi làm vua năm 1428.'}],
+  qs:[{q:'Ai khởi nghĩa ở Lam Sơn?',o:['Lê Lợi','Đinh Bộ Lĩnh'],a:0},{q:'Ai giúp Lê Lợi bàn kế đánh giặc?',o:['Nguyễn Trãi','Hồ Quý Ly'],a:0},{q:'Lê Lợi đánh giặc nào?',o:['Giặc Minh','Giặc Tống'],a:0}]}},
+
+leso:{bai:17,ic:'📖',t:'Đại Việt thời Lê sơ (1428 – 1527)',per:'Năm 1428 – 1527',col:'#ea580c',
+ goal:'Em biết vua Lê Thánh Tông, bộ luật Hồng Đức, bia tiến sĩ và sự phát triển của Đại Việt.',
+ key:[{e:'👑',t:'Năm 1428, Lê Lợi lên ngôi (Lê Thái Tổ), đóng đô ở Thăng Long, gọi là Đông Kinh.'},
+  {e:'🌾',t:'Nhà Lê chia ruộng đất cho nông dân để họ yên tâm làm ăn, sản xuất phát triển.'},
+  {e:'⭐',t:'Vua Lê Thánh Tông (1460 – 1497) cải cách bộ máy nhà nước, ban hành bộ luật Hồng Đức. Thời ông đất nước phát triển mạnh nhất.'},
+  {e:'🎓',t:'Giáo dục, thi cử phát triển. Năm 1484 bắt đầu dựng bia tiến sĩ ở Văn Miếu.'}],
+ more:['Lê Thánh Tông chia cả nước thành 13 đạo thừa tuyên, quan lại được quản lí chặt chẽ.','Bộ luật Hồng Đức có những điều bảo vệ quyền lợi của phụ nữ.'],
+ tip:'Nhớ: Lê Thánh Tông – luật Hồng Đức – bia tiến sĩ.',
+ tl:[{y:1428,s:'1428',t:'Lê Lợi lên ngôi, lập nhà Lê',d:'Nước tên là Đại Việt, kinh đô Đông Kinh (Thăng Long).'},
+  {y:1460,s:'1460',t:'Lê Thánh Tông lên ngôi',d:'Thời kì thịnh trị nhất của nhà Lê sơ.'},
+  {y:1471,s:'1471',t:'Đánh Chăm-pa, mở rộng bờ cõi về phía nam',d:'Vùng đất mới được lập thành đạo thừa tuyên Quảng Nam.'},
+  {y:1484,s:'1484',t:'Bắt đầu dựng bia tiến sĩ ở Văn Miếu',d:'Bia đá khắc tên những người đỗ tiến sĩ.'},
+  {y:1527,s:'1527',t:'Mạc Đăng Dung cướp ngôi',d:'Nhà Lê sơ kết thúc, nhà Mạc ra đời.'}],
+ ppl:[{ic:'👑',n:'Lê Thái Tổ',r:'Vua đầu tiên nhà Lê',d:'Tên cũ là Lê Lợi, lên ngôi năm 1428.'},
+  {ic:'🌟',n:'Lê Thánh Tông',r:'Vị vua giỏi',d:'Ban hành luật Hồng Đức, đưa Đại Việt phát triển mạnh.'},
+  {ic:'📚',n:'Ngô Sĩ Liên',r:'Nhà sử học',d:'Tác giả bộ Đại Việt sử kí toàn thư.'}],
+ qs:[{t:'mc',q:'Vị vua nổi tiếng nhất thời Lê sơ là ai?',o:['Lê Thánh Tông','Đinh Tiên Hoàng','Hồ Quý Ly'],a:0,h:['Ông trị vì từ năm 1460 đến 1497.']},
+  {t:'mc',q:'Bộ luật nổi tiếng thời Lê sơ tên là gì?',o:['Luật Hồng Đức','Hình thư','Bình Ngô đại cáo'],a:0,h:['Tên có hai chữ “Hồng Đức”.']},
+  {t:'mc',q:'Bia tiến sĩ được dựng ở đâu?',o:['Văn Miếu','Chùa Một Cột','Thành Tây Đô'],a:0,h:['Nơi thờ Khổng Tử ở Hà Nội.']},
+  {t:'tf',q:'Năm 1428, Lê Lợi lên ngôi vua.',a:true,h:['Sau khi chiến thắng quân Minh.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Lê Lợi lên ngôi',y:1428},{t:'Lê Thánh Tông lên ngôi',y:1460},{t:'Dựng bia tiến sĩ',y:1484},{t:'Mạc Đăng Dung cướp ngôi',y:1527}],h:['Vua đầu tiên đi trước, vua giỏi đi sau.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Lê Thánh Tông','Vua ban hành luật Hồng Đức'],['Ngô Sĩ Liên','Nhà sử học'],['Văn Miếu','Nơi có bia tiến sĩ']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'👑',t:'Lê Lợi lập nhà Lê năm 1428.'},{e:'⭐',t:'Vua Lê Thánh Tông rất giỏi.'},{e:'🎓',t:'Văn Miếu có bia tiến sĩ.'}],
+  qs:[{q:'Vua giỏi nhất thời Lê sơ là ai?',o:['Lê Thánh Tông','Hồ Quý Ly'],a:0},{q:'Bia tiến sĩ ở đâu?',o:['Văn Miếu','Chợ'],a:0},{q:'Nhà Lê chia ruộng cho ai?',o:['Nông dân','Giặc'],a:0}]}},
+
+tayau:{bai:1,ic:'🏰',t:'Quá trình hình thành và phát triển của chế độ phong kiến ở Tây Âu',per:'Thế kỉ V – XIV',col:'#475569',
+ goal:'Em biết xã hội phong kiến Tây Âu có những ai, lãnh địa là gì và vì sao thành thị xuất hiện.',
+ key:[{e:'🏛️',t:'Năm 476, Đế quốc Tây Rô-ma sụp đổ. Người Giéc-man lập ra nhiều vương quốc ở Tây Âu.'},
+  {e:'🏰',t:'Xã hội có hai giai cấp chính. Lãnh chúa có nhiều ruộng đất và lâu đài. Nông nô nhận ruộng của lãnh chúa, phải nộp tô và làm việc cho lãnh chúa.'},
+  {e:'🌾',t:'Lãnh địa là vùng đất rộng của lãnh chúa. Ở đó, mọi thứ tự làm ra để dùng (tự cung tự cấp), rất ít buôn bán với bên ngoài.'},
+  {e:'🏙️',t:'Từ thế kỉ XI, thành thị xuất hiện. Thợ thủ công và thương nhân sống ở đó, làm hàng hóa và buôn bán, làm kinh tế phát triển.'}],
+ more:['Thời kì trung đại ở Tây Âu kéo dài từ thế kỉ V đến khoảng giữa thế kỉ XVI.','Nông nô không phải là nô lệ, nhưng họ bị lệ thuộc vào lãnh chúa và không được tự do đi nơi khác.'],
+ tip:'Nhớ: lãnh chúa – lãnh địa – nông nô – thành thị.',
+ tl:[{y:476,s:'476',t:'Đế quốc Tây Rô-ma sụp đổ',d:'Người Giéc-man tiêu diệt Tây Rô-ma và lập nhiều vương quốc mới.'},
+  {y:800,s:'800',t:'Sác-lơ-ma-nhơ lên ngôi hoàng đế',d:'Vua của người Phrăng được phong làm hoàng đế, cai quản vùng đất rộng lớn ở Tây Âu.'},
+  {y:1050,s:'TK XI',t:'Thành thị trung đại xuất hiện',d:'Thợ thủ công và thương nhân tập trung ở thành thị để sản xuất và buôn bán.'}],
+ ppl:[{ic:'👑',n:'Sác-lơ-ma-nhơ',r:'Vua người Phrăng',d:'Năm 800, ông được phong làm hoàng đế.'},
+  {ic:'🏰',n:'Lãnh chúa',r:'Chủ lãnh địa',d:'Có nhiều đất đai, có lâu đài, có quyền lực trong lãnh địa của mình.'},
+  {ic:'🌾',n:'Nông nô',r:'Người cày ruộng',d:'Nhận ruộng của lãnh chúa để cày cấy, phải nộp tô và làm việc cho lãnh chúa.'},
+  {ic:'🛠️',n:'Thợ thủ công và thương nhân',r:'Người ở thành thị',d:'Làm ra hàng hóa và buôn bán ở thành thị.'}],
+ qs:[{t:'mc',q:'Năm 476, điều gì xảy ra ở Tây Âu?',o:['Đế quốc Tây Rô-ma sụp đổ','Tìm ra châu Mĩ','Thành thị xuất hiện'],a:0,h:['Đây là mốc mở đầu thời trung đại ở Tây Âu.']},
+  {t:'mc',q:'Người có nhiều đất đai và lâu đài ở Tây Âu thời phong kiến gọi là gì?',o:['Lãnh chúa','Nông nô','Thương nhân'],a:0,h:['Họ cai quản lãnh địa.']},
+  {t:'mc',q:'Lãnh địa phong kiến có đặc điểm nào?',o:['Tự cung tự cấp','Buôn bán sôi nổi','Dùng máy móc hiện đại'],a:0,h:['Tự làm ra những thứ cần dùng.']},
+  {t:'tf',q:'Nông nô phải nộp tô và làm việc cho lãnh chúa.',a:true,h:['Họ nhận ruộng của lãnh chúa.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Đế quốc Tây Rô-ma sụp đổ',y:476},{t:'Sác-lơ-ma-nhơ lên ngôi hoàng đế',y:800},{t:'Thành thị trung đại xuất hiện (thế kỉ XI)',y:1050}],h:['Thế kỉ XI muộn hơn năm 800.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Lãnh chúa','Có nhiều đất đai, lâu đài'],['Nông nô','Nhận ruộng, phải nộp tô'],['Thành thị','Nơi thợ thủ công và thương nhân làm ăn']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🏰',t:'Lãnh chúa có nhiều đất và lâu đài.'},{e:'🌾',t:'Nông nô làm ruộng cho lãnh chúa.'},{e:'🏙️',t:'Về sau có thành thị để làm hàng và buôn bán.'}],
+  qs:[{q:'Ai có nhiều đất và lâu đài?',o:['Lãnh chúa','Nông nô'],a:0},{q:'Ai làm ruộng cho lãnh chúa?',o:['Nông nô','Lãnh chúa'],a:0},{q:'Ở thành thị, mọi người làm gì?',o:['Làm hàng và buôn bán','Chỉ cày ruộng'],a:0}]}},
+
+phuchung:{bai:3,ic:'🎨',t:'Phong trào văn hóa Phục hưng và cải cách tôn giáo',per:'Thế kỉ XIV – XVI',col:'#a21caf',
+ goal:'Em biết Phục hưng bắt đầu ở đâu, những nhân vật nổi tiếng và Cải cách tôn giáo năm 1517.',
+ key:[{e:'🎨',t:'Phong trào Văn hóa Phục hưng bắt đầu ở I-ta-li-a từ thế kỉ XIV, sau đó lan ra nhiều nước châu Âu.'},
+  {e:'💡',t:'Các nhà văn hóa muốn khôi phục những giá trị tốt đẹp của văn hóa Hy Lạp, Rô-ma cổ đại. Họ đề cao con người và đề cao khoa học.'},
+  {e:'🖼️',t:'Có nhiều nghệ sĩ, nhà khoa học nổi tiếng: Lê-ô-nác-đô đa Vin-xi, Mi-ken-lăng-giơ, Sếch-xpia, Cô-péc-ních…'},
+  {e:'✝️',t:'Năm 1517, Mác-tin Lu-thơ phản đối Giáo hội Công giáo, mở đầu phong trào Cải cách tôn giáo và hình thành đạo Tin lành.'}],
+ more:['Cô-péc-ních cho rằng Trái Đất quay quanh Mặt Trời, khác với quan niệm cũ của Giáo hội thời đó.','Phong trào giúp tư tưởng con người được giải phóng, khoa học và nghệ thuật phát triển mạnh.'],
+ tip:'Nhớ: Phục hưng – I-ta-li-a – đề cao con người. 1517 – Lu-thơ.',
+ tl:[{y:1350,s:'TK XIV',t:'Phục hưng bắt đầu ở I-ta-li-a',d:'Sau đó lan ra nhiều nước châu Âu.'},
+  {y:1517,s:'1517',t:'Lu-thơ mở đầu Cải cách tôn giáo',d:'Ông phản đối Giáo hội Công giáo ở Đức.'},
+  {y:1543,s:'1543',t:'Cô-péc-ních công bố thuyết Mặt Trời là trung tâm',d:'Ông cho rằng Trái Đất quay quanh Mặt Trời.'}],
+ ppl:[{ic:'🎨',n:'Lê-ô-nác-đô đa Vin-xi',r:'Họa sĩ, nhà khoa học (I-ta-li-a)',d:'Ông vẽ bức tranh nổi tiếng Mô-na Li-da.'},
+  {ic:'🗿',n:'Mi-ken-lăng-giơ',r:'Nhà điêu khắc, họa sĩ (I-ta-li-a)',d:'Ông tạc bức tượng Đa-vít nổi tiếng.'},
+  {ic:'🎭',n:'Sếch-xpia',r:'Nhà viết kịch (Anh)',d:'Ông viết nhiều vở kịch, thơ nổi tiếng.'},
+  {ic:'🔭',n:'Cô-péc-ních',r:'Nhà thiên văn (Ba Lan)',d:'Ông cho rằng Trái Đất quay quanh Mặt Trời.'},
+  {ic:'✝️',n:'Mác-tin Lu-thơ',r:'Nhà cải cách tôn giáo (Đức)',d:'Ông mở đầu phong trào Cải cách tôn giáo năm 1517.'}],
+ qs:[{t:'mc',q:'Phong trào Văn hóa Phục hưng bắt đầu ở nước nào?',o:['I-ta-li-a','Anh','Việt Nam'],a:0,h:['Nước hình chiếc ủng ở châu Âu.']},
+  {t:'mc',q:'Ai là tác giả bức tranh Mô-na Li-da?',o:['Lê-ô-nác-đô đa Vin-xi','Cô-péc-ních','Lu-thơ'],a:0,h:['Ông là họa sĩ và nhà khoa học.']},
+  {t:'mc',q:'Năm 1517, ai mở đầu phong trào Cải cách tôn giáo?',o:['Mác-tin Lu-thơ','Cô-lôm-bô','Sếch-xpia'],a:0,h:['Ông là người Đức.']},
+  {t:'tf',q:'Cô-péc-ních cho rằng Trái Đất quay quanh Mặt Trời.',a:true,h:['Ông là nhà thiên văn.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Phục hưng bắt đầu ở I-ta-li-a (thế kỉ XIV)',y:1350},{t:'Lu-thơ mở đầu Cải cách tôn giáo',y:1517},{t:'Cô-péc-ních công bố thuyết Mặt Trời là trung tâm',y:1543}],h:['Phục hưng bắt đầu trước tiên.']},
+  {t:'match',q:'Nối nhân vật với việc làm.',p:[['Lê-ô-nác-đô đa Vin-xi','Họa sĩ vẽ Mô-na Li-da'],['Cô-péc-ních','Nhà thiên văn'],['Mác-tin Lu-thơ','Cải cách tôn giáo']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🎨',t:'Phục hưng bắt đầu ở I-ta-li-a.'},{e:'🖼️',t:'Có nhiều họa sĩ, nhà khoa học nổi tiếng.'},{e:'✝️',t:'Lu-thơ cải cách tôn giáo năm 1517.'}],
+  qs:[{q:'Phục hưng bắt đầu ở nước nào?',o:['I-ta-li-a','Việt Nam'],a:0},{q:'Ai vẽ bức tranh Mô-na Li-da?',o:['Lê-ô-nác-đô đa Vin-xi','Lê Lợi'],a:0},{q:'Ai mở đầu Cải cách tôn giáo?',o:['Lu-thơ','Cô-lôm-bô'],a:0}]}},
+
+trungquoc:{bai:4,ic:'🏯',t:'Trung Quốc từ thế kỉ VII đến giữa thế kỉ XIX',per:'Thế kỉ VII – giữa thế kỉ XIX',col:'#ca8a04',
+ goal:'Em biết các triều đại lớn của Trung Quốc từ nhà Đường, các thành tựu nổi bật và mối quan hệ với nước ta.',
+ key:[{e:'👑',t:'Từ năm 618, nhà Đường được thành lập và rất thịnh vượng. Sau đó là các triều đại Tống, Nguyên, Minh, Thanh.'},
+  {e:'🖋️',t:'Thời Đường nổi tiếng với thơ Đường, có các nhà thơ như Lý Bạch, Đỗ Phủ.'},
+  {e:'🔬',t:'Người Trung Quốc có 4 phát minh lớn: giấy, kĩ thuật in, la bàn và thuốc súng.'},
+  {e:'🧱',t:'Có nhiều công trình và tác phẩm nổi tiếng như Vạn Lý Trường Thành, Cố cung (Tử Cấm Thành) ở Bắc Kinh và các tiểu thuyết Tây du kí, Tam quốc diễn nghĩa.'}],
+ more:['Các triều đại phong kiến Trung Quốc nhiều lần đem quân xâm lược nước ta, nhưng cuối cùng đều thất bại.','Đến giữa thế kỉ XIX, các nước phương Tây xâm lược Trung Quốc, chế độ phong kiến suy yếu.'],
+ tip:'Nhớ: 4 phát minh – giấy, in, la bàn, thuốc súng.',
+ tl:[{y:618,s:'618',t:'Nhà Đường thành lập',d:'Thời kì phát triển thịnh vượng, nổi tiếng về thơ Đường.'},
+  {y:960,s:'960',t:'Nhà Tống thành lập',d:'Nhà Tống nhiều lần đem quân xâm lược nước ta nhưng thất bại, như cuộc kháng chiến của Lý Thường Kiệt.'},
+  {y:1271,s:'1271',t:'Hốt Tất Liệt lập nhà Nguyên',d:'Nhà Nguyên là triều đại do người Mông Cổ lập ra.'},
+  {y:1368,s:'1368',t:'Nhà Minh thành lập',d:'Thời Minh, Trịnh Hòa chỉ huy các chuyến đi biển lớn. Cố cung được xây ở Bắc Kinh.'},
+  {y:1644,s:'1644',t:'Nhà Thanh vào Bắc Kinh',d:'Nhà Thanh là triều đại phong kiến cuối cùng của Trung Quốc.'}],
+ ppl:[{ic:'🖋️',n:'Lý Bạch và Đỗ Phủ',r:'Nhà thơ thời Đường',d:'Hai nhà thơ nổi tiếng nhất thời Đường.'},
+  {ic:'🏇',n:'Hốt Tất Liệt',r:'Người lập nhà Nguyên',d:'Nhà Nguyên về sau nhiều lần xâm lược Đại Việt nhưng thất bại.'},
+  {ic:'👑',n:'Chu Nguyên Chương',r:'Người lập nhà Minh',d:'Lập ra nhà Minh năm 1368.'},
+  {ic:'🚢',n:'Trịnh Hòa',r:'Đô đốc thời Minh',d:'Chỉ huy những chuyến đi biển lớn của nhà Minh.'}],
+ qs:[{t:'mc',q:'Ai lập ra nhà Minh năm 1368?',o:['Chu Nguyên Chương','Hốt Tất Liệt','Lý Bạch'],a:0,h:['Ông là người Hán, đánh đuổi nhà Nguyên.']},
+  {t:'mc',q:'Lý Bạch và Đỗ Phủ là nhà thơ nổi tiếng thời nào?',o:['Nhà Đường','Nhà Minh','Nhà Nguyên'],a:0,h:['Gọi là “thơ Đường”.']},
+  {t:'mc',q:'Phát minh nào sau đây là của người Trung Quốc?',o:['La bàn','Máy hơi nước','Điện thoại'],a:0,h:['Giúp thủy thủ biết phương hướng.']},
+  {t:'tf',q:'Nhà Nguyên do Hốt Tất Liệt lập ra.',a:true,h:['Nhà Nguyên là triều đại của người Mông Cổ.']},
+  {t:'sort',q:'Sắp xếp các triều đại theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Nhà Đường thành lập',y:618},{t:'Nhà Tống thành lập',y:960},{t:'Nhà Nguyên thành lập',y:1271},{t:'Nhà Minh thành lập',y:1368}],h:['Đường, Tống, Nguyên, Minh.']},
+  {t:'match',q:'Nối nhân vật với ý nghĩa.',p:[['Chu Nguyên Chương','Lập nhà Minh'],['Trịnh Hòa','Chỉ huy các chuyến đi biển'],['Lý Bạch','Nhà thơ nổi tiếng']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🖋️',t:'Thời nhà Đường có nhiều nhà thơ nổi tiếng.'},{e:'🔬',t:'Người Trung Quốc phát minh ra giấy, in, la bàn, thuốc súng.'},{e:'🧱',t:'Trung Quốc có Vạn Lý Trường Thành.'}],
+  qs:[{q:'Nhà thơ nổi tiếng thời Đường là ai?',o:['Lý Bạch','Lê Lợi'],a:0},{q:'Phát minh nào của Trung Quốc?',o:['Giấy','Xe máy'],a:0},{q:'Công trình nổi tiếng của Trung Quốc?',o:['Vạn Lý Trường Thành','Chùa Một Cột'],a:0}]}},
+
+ando:{bai:5,ic:'🕌',t:'Ấn Độ từ thế kỉ IV đến giữa thế kỉ XIX',per:'Thế kỉ IV – giữa thế kỉ XIX',col:'#db2777',
+ goal:'Em biết các vương triều lớn của Ấn Độ, chữ số 0 và lăng Ta-giơ Ma-han.',
+ key:[{e:'🏛️',t:'Từ khoảng năm 320, vương triều Gúp-ta thống nhất miền Bắc Ấn Độ, đạt nhiều thành tựu về khoa học và văn hóa.'},
+  {e:'🔢',t:'Người Ấn Độ sáng tạo ra chữ số 0 và các chữ số từ 1 đến 9. Các chữ số này truyền sang Ả Rập, châu Âu và ngày nay vẫn được dùng.'},
+  {e:'🕌',t:'Từ năm 1206, các vương triều Hồi giáo Đê-li cai trị. Năm 1526, vương triều Mô-gôn được thành lập.'},
+  {e:'🕊️',t:'Vua Ắc-ba (Mô-gôn) thực hiện chính sách hòa hợp giữa các tôn giáo. Lăng Ta-giơ Ma-han là công trình rất nổi tiếng.'}],
+ more:['Phật giáo ra đời ở Ấn Độ, về sau truyền sang nhiều nước châu Á, trong đó có Việt Nam.','Từ giữa thế kỉ XVIII, thực dân Anh dần xâm chiếm Ấn Độ và biến nước này thành thuộc địa.'],
+ tip:'Nhớ: Gúp-ta – số 0; Mô-gôn – Ta-giơ Ma-han.',
+ tl:[{y:320,s:'320',t:'Vương triều Gúp-ta thành lập',d:'Thời kì phát triển rực rỡ ở miền Bắc Ấn Độ.'},
+  {y:1206,s:'1206',t:'Vương triều Hồi giáo Đê-li thành lập',d:'Từ đây, các vương triều Hồi giáo cai trị miền Bắc Ấn Độ.'},
+  {y:1526,s:'1526',t:'Vương triều Mô-gôn thành lập',d:'Ba-bua lập ra vương triều Mô-gôn.'},
+  {y:1556,s:'1556',t:'Ắc-ba lên ngôi',d:'Ông chủ trương hòa hợp giữa các tôn giáo.'},
+  {y:1653,s:'1653',t:'Hoàn thành lăng Ta-giơ Ma-han (khoảng năm 1653)',d:'Vua Sa Gia-han cho xây lăng để tưởng nhớ vợ.'},
+  {y:1757,s:'1757',t:'Anh thắng ở Pla-xây, bắt đầu xâm chiếm Ấn Độ',d:'Dần dần, Ấn Độ trở thành thuộc địa của Anh.'}],
+ ppl:[{ic:'🏇',n:'Ba-bua',r:'Người lập vương triều Mô-gôn',d:'Lập vương triều Mô-gôn năm 1526.'},
+  {ic:'🕊️',n:'Ắc-ba',r:'Vua Mô-gôn',d:'Lên ngôi năm 1556, thực hiện hòa hợp giữa các tôn giáo.'},
+  {ic:'🕌',n:'Sa Gia-han',r:'Vua Mô-gôn',d:'Cho xây lăng Ta-giơ Ma-han để tưởng nhớ vợ.'},
+  {ic:'🔢',n:'Các nhà toán học Ấn Độ',r:'Người sáng tạo chữ số',d:'Sáng tạo ra chữ số 0 và các chữ số từ 1 đến 9.'}],
+ qs:[{t:'mc',q:'Người Ấn Độ sáng tạo ra điều quan trọng nào trong toán học?',o:['Chữ số 0','Máy tính','La bàn'],a:0,h:['Số đứng trước số 1.']},
+  {t:'mc',q:'Vương triều Mô-gôn được thành lập năm nào?',o:['1526','1206','1757'],a:0,h:['Sau vương triều Đê-li.']},
+  {t:'mc',q:'Lăng Ta-giơ Ma-han được xây dưới thời vua nào?',o:['Sa Gia-han','Tần Thủy Hoàng','Ba-bua'],a:0,h:['Ông xây lăng để tưởng nhớ vợ.']},
+  {t:'tf',q:'Vua Ắc-ba thực hiện chính sách hòa hợp giữa các tôn giáo.',a:true,h:['Ông là vua nổi tiếng của vương triều Mô-gôn.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Vương triều Gúp-ta thành lập',y:320},{t:'Vương triều Hồi giáo Đê-li thành lập',y:1206},{t:'Vương triều Mô-gôn thành lập',y:1526},{t:'Anh bắt đầu xâm chiếm Ấn Độ',y:1757}],h:['Anh xâm chiếm sau cùng.']},
+  {t:'match',q:'Nối nhân vật với việc làm.',p:[['Ắc-ba','Hòa hợp giữa các tôn giáo'],['Sa Gia-han','Xây lăng Ta-giơ Ma-han'],['Ba-bua','Lập vương triều Mô-gôn']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🔢',t:'Người Ấn Độ sáng tạo ra chữ số 0.'},{e:'🕌',t:'Ấn Độ có lăng Ta-giơ Ma-han rất đẹp.'},{e:'🇬🇧',t:'Về sau, thực dân Anh xâm chiếm Ấn Độ.'}],
+  qs:[{q:'Ai sáng tạo ra chữ số 0?',o:['Người Ấn Độ','Người Nhật'],a:0},{q:'Lăng Ta-giơ Ma-han ở nước nào?',o:['Ấn Độ','Việt Nam'],a:0},{q:'Nước nào xâm chiếm Ấn Độ?',o:['Anh','Lào'],a:0}]}},
+
+dna:{bai:6,ic:'🌴',t:'Các vương quốc phong kiến Đông Nam Á (từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI)',per:'Thế kỉ X – đầu thế kỉ XVI',col:'#059669',
+ goal:'Em biết Đông Nam Á có những vương quốc nào, họ sống bằng nghề gì và giao lưu với nhau ra sao.',
+ key:[{e:'🌴',t:'Đông Nam Á có nhiều nước, khí hậu nóng ẩm, nhiều sông và đồng bằng. Người dân chủ yếu trồng lúa nước.'},
+  {e:'🏯',t:'Từ nửa sau thế kỉ X đến đầu thế kỉ XVI, nhiều vương quốc phát triển: Đại Việt, Chăm-pa, Cam-pu-chia, Lào, Pa-gan (Mi-an-ma), Ay-út-thay-a (Thái Lan), Mô-giô-pa-hít (In-đô-nê-xi-a), Ma-lắc-ca…'},
+  {e:'⛵',t:'Các nước buôn bán và giao lưu văn hóa với nhau, với Ấn Độ và Trung Quốc. Văn hóa Ấn Độ ảnh hưởng nhiều đến khu vực này.'},
+  {e:'🚢',t:'Từ thế kỉ XVI, các nước phương Tây bắt đầu đến Đông Nam Á. Năm 1511, Bồ Đào Nha chiếm Ma-lắc-ca.'}],
+ more:['Đại Việt và Chăm-pa cũng là những quốc gia ở Đông Nam Á. Em sẽ học riêng về Lào, Cam-pu-chia và Chăm-pa trong các bài sau.','Ma-lắc-ca là một thương cảng quan trọng, nay thuộc Ma-lai-xi-a.'],
+ tip:'Nhớ: Đông Nam Á – lúa nước – nhiều vương quốc – 1511 Ma-lắc-ca.',
+ tl:[{y:1293,s:'1293',t:'Vương quốc Mô-giô-pa-hít thành lập',d:'Vương quốc hùng mạnh ở đảo Gia-va, In-đô-nê-xi-a.'},
+  {y:1351,s:'1351',t:'Vương quốc Ay-út-thay-a thành lập',d:'Vương quốc của người Thái.'},
+  {y:1400,s:'khoảng 1400',t:'Vương quốc Ma-lắc-ca hình thành',d:'Ma-lắc-ca là thương cảng buôn bán sầm uất, nay thuộc Ma-lai-xi-a.'},
+  {y:1511,s:'1511',t:'Bồ Đào Nha chiếm Ma-lắc-ca',d:'Các nước phương Tây bắt đầu xâm nhập Đông Nam Á.'}],
+ ppl:[{ic:'🏯',n:'Pa-gan',r:'Vương quốc ở Mi-an-ma',d:'Vương quốc cổ nổi tiếng với nhiều đền, chùa.'},
+  {ic:'🏝️',n:'Mô-giô-pa-hít',r:'Vương quốc ở In-đô-nê-xi-a',d:'Vương quốc hùng mạnh trên đảo Gia-va, thành lập năm 1293.'},
+  {ic:'🛕',n:'Ay-út-thay-a',r:'Vương quốc của người Thái',d:'Thành lập năm 1351.'},
+  {ic:'⛵',n:'Ma-lắc-ca',r:'Vương quốc thương cảng',d:'Nơi buôn bán sầm uất, bị Bồ Đào Nha chiếm năm 1511.'}],
+ qs:[{t:'mc',q:'Người dân Đông Nam Á chủ yếu làm nghề gì?',o:['Trồng lúa nước','Chăn nuôi du mục','Khai thác dầu mỏ'],a:0,h:['Khí hậu nóng ẩm, nhiều sông ngòi.']},
+  {t:'mc',q:'Năm 1511, nước nào chiếm Ma-lắc-ca?',o:['Bồ Đào Nha','Trung Quốc','Ấn Độ'],a:0,h:['Một nước châu Âu đi thuyền sang phương Đông.']},
+  {t:'mc',q:'Mô-giô-pa-hít là vương quốc ở nước nào ngày nay?',o:['In-đô-nê-xi-a','Thái Lan','Lào'],a:0,h:['Nằm trên đảo Gia-va.']},
+  {t:'tf',q:'Văn hóa Ấn Độ ảnh hưởng nhiều đến Đông Nam Á.',a:true,h:['Chữ viết, tôn giáo của nhiều nước chịu ảnh hưởng này.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Thành lập vương quốc Mô-giô-pa-hít',y:1293},{t:'Thành lập vương quốc Ay-út-thay-a',y:1351},{t:'Bồ Đào Nha chiếm Ma-lắc-ca',y:1511}],h:['Bồ Đào Nha đến sau cùng.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Ay-út-thay-a','Vương quốc của người Thái'],['Mô-giô-pa-hít','Vương quốc ở In-đô-nê-xi-a'],['Ma-lắc-ca','Thương cảng bị Bồ Đào Nha chiếm']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🌴',t:'Đông Nam Á có nhiều nước.'},{e:'🌾',t:'Người dân trồng nhiều lúa nước.'},{e:'⛵',t:'Các nước buôn bán với nhau.'}],
+  qs:[{q:'Đông Nam Á có nhiều gì?',o:['Nhiều nước','Chỉ một nước'],a:0},{q:'Người dân trồng gì nhiều?',o:['Lúa nước','Lúa mì'],a:0},{q:'Các nước làm gì với nhau?',o:['Buôn bán','Không gặp nhau'],a:0}]}},
+
+lao:{bai:7,ic:'🐘',t:'Vương quốc Lào',per:'Từ năm 1353',col:'#65a30d',
+ goal:'Em biết vương quốc Lan Xang được lập thế nào, vì sao gọi là “Triệu Voi” và những nét văn hóa của Lào.',
+ key:[{e:'🐘',t:'Năm 1353, Pha Ngừm tập hợp và thống nhất các mường Lào, lập nước riêng, đặt tên là Lan Xang, nghĩa là “Triệu Voi”.'},
+  {e:'🌾',t:'Từ thế kỉ XV đến thế kỉ XVII, Lan Xang rất thịnh vượng. Người dân chủ yếu làm nông nghiệp, kết hợp khai thác lâm sản, làm thủ công và buôn bán.'},
+  {e:'🙏',t:'Văn hóa Lào chịu ảnh hưởng sâu sắc của văn hóa Ấn Độ. Có chữ viết riêng, văn học dân gian, đạo Phật phát triển và nhiều đền chùa nổi tiếng.'},
+  {e:'🤝',t:'Lan Xang luôn giữ quan hệ hòa hiếu với các nước láng giềng.'}],
+ more:['Năm 1563, vua Xệt-tha-thi-rát dời kinh đô về Viêng Chăn. Đây nay là thủ đô của nước Lào.','Từ đầu thế kỉ XVIII, Lan Xang suy yếu và bị chia thành nhiều vương quốc nhỏ.'],
+ tip:'Nhớ: 1353 – Pha Ngừm – Lan Xang – “Triệu Voi”.',
+ tl:[{y:1353,s:'1353',t:'Pha Ngừm lập vương quốc Lan Xang',d:'Ông thống nhất các mường Lào, đặt tên nước là Lan Xang (Triệu Voi).'},
+  {y:1450,s:'XV – XVII',t:'Thời kì thịnh vượng nhất của Lan Xang',d:'Kinh tế phát triển, xã hội ổn định, văn hóa rực rỡ.'},
+  {y:1563,s:'1563',t:'Dời kinh đô về Viêng Chăn',d:'Vua Xệt-tha-thi-rát dời kinh đô từ Luang Pha-bang về Viêng Chăn.'},
+  {y:1707,s:'1707',t:'Lan Xang suy yếu, bị chia rẽ',d:'Vương quốc chia thành nhiều vương quốc nhỏ.'}],
+ ppl:[{ic:'🐘',n:'Pha Ngừm',r:'Người lập vương quốc Lan Xang',d:'Năm 1353, ông thống nhất các mường Lào và lên ngôi vua.'},
+  {ic:'👑',n:'Xệt-tha-thi-rát',r:'Vua Lan Xang',d:'Năm 1563, ông dời kinh đô về Viêng Chăn.'},
+  {ic:'🛕',n:'Thạt Luổng',r:'Công trình nổi tiếng ở Viêng Chăn',d:'Công trình Phật giáo nổi tiếng, được xây dựng ở thế kỉ XVI.'}],
+ qs:[{t:'mc',q:'Ai lập ra vương quốc Lan Xang năm 1353?',o:['Pha Ngừm','Giay-a-vác-man II','Đinh Bộ Lĩnh'],a:0,h:['Ông là tù trưởng người Lào.']},
+  {t:'mc',q:'Lan Xang có nghĩa là gì?',o:['Triệu Voi','Triệu Rồng','Triệu Ngựa'],a:0,h:['Con vật to lớn, rất quý ở Lào.']},
+  {t:'mc',q:'Lan Xang thịnh vượng nhất vào thời gian nào?',o:['Thế kỉ XV – XVII','Thế kỉ X','Thế kỉ XX'],a:0,h:['Sau khi thành lập khoảng một thế kỉ.']},
+  {t:'tf',q:'Văn hóa Lào chịu ảnh hưởng sâu sắc của văn hóa Ấn Độ.',a:true,h:['Chữ viết và đạo Phật có nguồn gốc liên quan đến Ấn Độ.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Pha Ngừm lập Lan Xang',y:1353},{t:'Dời kinh đô về Viêng Chăn',y:1563},{t:'Lan Xang suy yếu, bị chia rẽ',y:1707}],h:['Lập nước trước, suy yếu sau.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Pha Ngừm','Người lập Lan Xang'],['Lan Xang','Triệu Voi'],['Viêng Chăn','Kinh đô từ năm 1563']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🐘',t:'Lan Xang nghĩa là Triệu Voi.'},{e:'👑',t:'Pha Ngừm lập nước Lan Xang.'},{e:'🙏',t:'Đạo Phật phát triển ở Lào.'}],
+  qs:[{q:'Lan Xang nghĩa là gì?',o:['Triệu Voi','Triệu Hoa'],a:0},{q:'Ai lập nước Lan Xang?',o:['Pha Ngừm','Lê Lợi'],a:0},{q:'Lan Xang là nước của ai?',o:['Người Lào','Người Anh'],a:0}]}},
+
+cpc:{bai:8,ic:'🛕',t:'Vương quốc Cam-pu-chia',per:'Từ thế kỉ VI',col:'#a16207',
+ goal:'Em biết thời kì Ăng-co rực rỡ của Cam-pu-chia và những công trình nổi tiếng như Ăng-co Vát.',
+ key:[{e:'🏞️',t:'Từ thế kỉ VI, người Khơ-me lập nước Chân Lạp, sau gọi là Cam-pu-chia.'},
+  {e:'👑',t:'Năm 802, vua Giay-a-vác-man II thống nhất đất nước, mở ra thời kì Ăng-co, là thời kì phát triển rực rỡ nhất của Cam-pu-chia.'},
+  {e:'🛕',t:'Thời Ăng-co, nhiều đền tháp độc đáo được xây dựng, nổi tiếng nhất là Ăng-co Vát và Ăng-co Thom.'},
+  {e:'⚠️',t:'Đến thế kỉ XV, Ăng-co suy yếu vì tranh chấp quyền lực trong triều đình và bị người Thái tấn công.'}],
+ more:['Hình ảnh Ăng-co Vát có trên quốc kì của Cam-pu-chia ngày nay.','Chữ viết của Cam-pu-chia xuất hiện sớm. Văn hóa Cam-pu-chia chịu ảnh hưởng sâu sắc của văn hóa Ấn Độ.'],
+ tip:'Nhớ: 802 – Giay-a-vác-man II – Ăng-co Vát.',
+ tl:[{y:550,s:'TK VI',t:'Người Khơ-me lập nước Chân Lạp',d:'Sau này nước có tên là Cam-pu-chia.'},
+  {y:802,s:'802',t:'Giay-a-vác-man II thống nhất đất nước',d:'Mở ra thời kì Ăng-co rực rỡ.'},
+  {y:1150,s:'TK XII',t:'Xây dựng khu đền Ăng-co Vát',d:'Công trình kiến trúc độc đáo, nổi tiếng thế giới.'},
+  {y:1432,s:'1432',t:'Kết thúc thời kì kinh đô ở Ăng-co',d:'Ăng-co suy yếu, kinh đô được dời đi nơi khác.'}],
+ ppl:[{ic:'👑',n:'Giay-a-vác-man II',r:'Vua Cam-pu-chia',d:'Năm 802, ông thống nhất đất nước, mở ra thời kì Ăng-co.'},
+  {ic:'🛕',n:'Xu-ri-a-vác-man II',r:'Vua Cam-pu-chia',d:'Cho xây khu đền Ăng-co Vát.'},
+  {ic:'🏛️',n:'Giay-a-vác-man VII',r:'Vua Cam-pu-chia',d:'Cho xây dựng thành Ăng-co Thom.'}],
+ qs:[{t:'mc',q:'Năm 802, vua nào thống nhất đất nước Cam-pu-chia?',o:['Giay-a-vác-man II','Pha Ngừm','Lê Hoàn'],a:0,h:['Ông mở ra thời kì Ăng-co.']},
+  {t:'mc',q:'Thời kì phát triển rực rỡ nhất của Cam-pu-chia gọi là gì?',o:['Thời kì Ăng-co','Thời kì Lan Xang','Thời kì Chân Lạp'],a:0,h:['Gắn với những đền tháp nổi tiếng.']},
+  {t:'mc',q:'Công trình nổi tiếng nhất thời Ăng-co là gì?',o:['Ăng-co Vát','Chùa Một Cột','Thành Tây Đô'],a:0,h:['Hình ảnh này có trên quốc kì Cam-pu-chia.']},
+  {t:'tf',q:'Đến thế kỉ XV, vương quốc Ăng-co suy yếu.',a:true,h:['Vì tranh chấp quyền lực và bị tấn công.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Người Khơ-me lập nước Chân Lạp (thế kỉ VI)',y:550},{t:'Giay-a-vác-man II thống nhất đất nước',y:802},{t:'Xây dựng Ăng-co Vát (thế kỉ XII)',y:1150},{t:'Kết thúc thời kì kinh đô ở Ăng-co',y:1432}],h:['Thế kỉ VI sớm nhất.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Giay-a-vác-man II','Mở ra thời kì Ăng-co'],['Ăng-co Vát','Đền nổi tiếng, có trên quốc kì'],['Người Khơ-me','Người lập nước Chân Lạp']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'👑',t:'Giay-a-vác-man II mở ra thời kì Ăng-co.'},{e:'🛕',t:'Ăng-co Vát là đền nổi tiếng.'},{e:'🇰🇭',t:'Ăng-co Vát có trên quốc kì Cam-pu-chia.'}],
+  qs:[{q:'Ăng-co Vát ở nước nào?',o:['Cam-pu-chia','Lào'],a:0},{q:'Thời kì rực rỡ nhất của Cam-pu-chia là thời kì nào?',o:['Ăng-co','Lan Xang'],a:0},{q:'Hình đền nào có trên quốc kì Cam-pu-chia?',o:['Ăng-co Vát','Chùa Một Cột'],a:0}]}},
+
+ngo:{bai:9,ic:'🌊',t:'Đất nước buổi đầu độc lập (939 – 967)',per:'Năm 938 – 967',col:'#0369a1',
+ goal:'Em biết Ngô Quyền và chiến thắng Bạch Đằng, việc xưng vương năm 939 và cuộc loạn 12 sứ quân.',
+ key:[{e:'🌊',t:'Năm 938, Ngô Quyền đánh tan quân Nam Hán trên sông Bạch Đằng, chấm dứt hơn 1000 năm Bắc thuộc.'},
+  {e:'👑',t:'Năm 939, Ngô Quyền bỏ chức tiết độ sứ, xưng vương và đóng đô ở Cổ Loa (Hà Nội), xây dựng chính quyền độc lập.'},
+  {e:'⚠️',t:'Sau khi Ngô Quyền mất, đến năm 965 chính quyền nhà Ngô tan rã. Đất nước bị 12 sứ quân chia nhau chiếm giữ (loạn 12 sứ quân).'},
+  {e:'🛡️',t:'Đinh Bộ Lĩnh liên kết với các sứ quân Trần Lãm, Phạm Bạch Hổ để đánh các sứ quân khác. Cuối năm 967, đất nước được thống nhất.'}],
+ more:['Ngô Quyền cho đóng cọc nhọn ngầm dưới sông Bạch Đằng, nhử thuyền giặc vào lúc nước triều lên rồi đánh khi nước triều rút.','Loạn 12 sứ quân xảy ra vì sau khi Ngô Quyền mất, nhiều hào trưởng địa phương nổi lên chiếm giữ các vùng đất.'],
+ tip:'Nhớ: 938 Bạch Đằng – 939 xưng vương – 965 loạn 12 sứ quân – 967 thống nhất.',
+ tl:[{y:938,s:'938',t:'Ngô Quyền thắng quân Nam Hán ở Bạch Đằng',d:'Chiến thắng khép lại hơn 1000 năm Bắc thuộc.'},
+  {y:939,s:'939',t:'Ngô Quyền xưng vương, đóng đô ở Cổ Loa',d:'Ông bỏ chức tiết độ sứ, lập chính quyền độc lập.'},
+  {y:944,s:'944',t:'Ngô Quyền mất',d:'Triều đình nhà Ngô dần rối ren.'},
+  {y:965,s:'965',t:'Loạn 12 sứ quân',d:'Chính quyền nhà Ngô tan rã, các sứ quân cát cứ khắp nơi.'},
+  {y:967,s:'967',t:'Đinh Bộ Lĩnh thống nhất đất nước',d:'Đinh Bộ Lĩnh dẹp xong loạn 12 sứ quân.'}],
+ ppl:[{ic:'🌊',n:'Ngô Quyền',r:'Vị vua đầu tiên thời độc lập',d:'Đánh thắng quân Nam Hán năm 938, xưng vương năm 939.'},
+  {ic:'🛡️',n:'Đinh Bộ Lĩnh',r:'Người dẹp loạn 12 sứ quân',d:'Thống nhất đất nước vào cuối năm 967.'},
+  {ic:'🤝',n:'Trần Lãm và Phạm Bạch Hổ',r:'Hai sứ quân',d:'Liên kết với Đinh Bộ Lĩnh để đánh các sứ quân khác.'}],
+ qs:[{t:'mc',q:'Ai lãnh đạo chiến thắng Bạch Đằng năm 938?',o:['Ngô Quyền','Lê Hoàn','Trần Hưng Đạo'],a:0,h:['Ông xưng vương năm 939.']},
+  {t:'mc',q:'Năm 939, Ngô Quyền đóng đô ở đâu?',o:['Cổ Loa','Hoa Lư','Thăng Long'],a:0,h:['Kinh đô cổ ở vùng Hà Nội ngày nay.']},
+  {t:'mc',q:'Tình trạng đất nước từ năm 965 gọi là gì?',o:['Loạn 12 sứ quân','Khởi nghĩa Lam Sơn','Nhà Hồ'],a:0,h:['Có 12 người chiếm giữ 12 vùng.']},
+  {t:'tf',q:'Chiến thắng Bạch Đằng năm 938 đã chấm dứt thời kì Bắc thuộc.',a:true,h:['Đất nước bước vào thời kì độc lập.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Chiến thắng Bạch Đằng',y:938},{t:'Ngô Quyền xưng vương',y:939},{t:'Loạn 12 sứ quân',y:965},{t:'Đinh Bộ Lĩnh thống nhất đất nước',y:967}],h:['Chiến thắng trước, xưng vương sau.']},
+  {t:'match',q:'Nối nhân vật hoặc địa danh với ý nghĩa.',p:[['Ngô Quyền','Thắng Nam Hán, xưng vương'],['Cổ Loa','Kinh đô thời Ngô'],['Đinh Bộ Lĩnh','Dẹp loạn 12 sứ quân']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🌊',t:'Ngô Quyền thắng giặc trên sông Bạch Đằng.'},{e:'👑',t:'Ngô Quyền làm vua, đóng đô ở Cổ Loa.'},{e:'🛡️',t:'Đinh Bộ Lĩnh dẹp loạn 12 sứ quân.'}],
+  qs:[{q:'Ai thắng giặc trên sông Bạch Đằng năm 938?',o:['Ngô Quyền','Lý Công Uẩn'],a:0},{q:'Kinh đô thời Ngô ở đâu?',o:['Cổ Loa','Hoa Lư'],a:0},{q:'Ai dẹp loạn 12 sứ quân?',o:['Đinh Bộ Lĩnh','Hồ Quý Ly'],a:0}]}},
+
+champa:{bai:18,ic:'🏯',t:'Vương quốc Chăm-pa và vùng đất Nam Bộ từ đầu thế kỉ X đến đầu thế kỉ XVI',per:'Thế kỉ X – đầu thế kỉ XVI',col:'#be185d',
+ goal:'Em biết vương quốc Chăm-pa, khu đền tháp Mỹ Sơn và vùng đất Nam Bộ thời xưa.',
+ key:[{e:'🏯',t:'Chăm-pa là vương quốc của người Chăm ở vùng miền Trung nước ta ngày nay. Từ năm 1220 đến năm 1353 là thời kì phát triển thịnh đạt nhất.'},
+  {e:'⚔️',t:'Năm 1471, vua Lê Thánh Tông đánh chiếm Vi-giay-a, kinh đô của Chăm-pa. Từ đó lãnh thổ Chăm-pa bị thu hẹp và chia thành nhiều tiểu quốc.'},
+  {e:'🛕',t:'Người Chăm có nền văn hóa rực rỡ: chữ viết riêng, đền tháp, điêu khắc đá. Khu đền tháp Mỹ Sơn (Quảng Nam) rất nổi tiếng.'},
+  {e:'🌾',t:'Ở Nam Bộ, sau khi vương quốc Phù Nam sụp đổ (đầu thế kỉ VII), vùng đất này trên danh nghĩa thuộc Chân Lạp (Cam-pu-chia).'}],
+ more:['Trước đó, Phù Nam là đế quốc hùng mạnh nhất Đông Nam Á trong các thế kỉ III – V, nổi tiếng với văn hóa Óc Eo.','Thánh địa Mỹ Sơn là Di sản văn hóa thế giới.'],
+ tip:'Nhớ: Chăm-pa – Mỹ Sơn – 1471; Nam Bộ – Phù Nam – Chân Lạp.',
+ tl:[{y:650,s:'TK VII',t:'Phù Nam sụp đổ',d:'Vùng đất Nam Bộ trên danh nghĩa thuộc Chân Lạp.'},
+  {y:1220,s:'1220',t:'Chăm-pa bước vào thời kì thịnh đạt nhất',d:'Thời kì này kéo dài đến năm 1353.'},
+  {y:1471,s:'1471',t:'Lê Thánh Tông đánh chiếm Vi-giay-a',d:'Lãnh thổ Chăm-pa bị thu hẹp và chia thành nhiều tiểu quốc.'}],
+ ppl:[{ic:'🛕',n:'Người Chăm',r:'Cư dân của Chăm-pa',d:'Giỏi xây đền tháp, điêu khắc đá và có chữ viết riêng.'},
+  {ic:'🏛️',n:'Mỹ Sơn',r:'Khu đền tháp ở Quảng Nam',d:'Khu đền tháp Chăm nổi tiếng, là Di sản văn hóa thế giới.'},
+  {ic:'🏯',n:'Vi-giay-a',r:'Kinh đô của Chăm-pa',d:'Nay thuộc tỉnh Bình Định, bị Lê Thánh Tông đánh chiếm năm 1471.'},
+  {ic:'👑',n:'Lê Thánh Tông',r:'Vua Đại Việt',d:'Năm 1471, ông đánh chiếm Vi-giay-a.'}],
+ qs:[{t:'mc',q:'Thời kì thịnh đạt nhất của Chăm-pa là khi nào?',o:['Từ 1220 đến 1353','Thế kỉ V','Thế kỉ XVIII'],a:0,h:['Sau thế kỉ X, trước năm 1471.']},
+  {t:'mc',q:'Khu đền tháp nổi tiếng của người Chăm ở Quảng Nam là gì?',o:['Mỹ Sơn','Ăng-co Vát','Thành nhà Hồ'],a:0,h:['Là Di sản văn hóa thế giới.']},
+  {t:'mc',q:'Năm 1471, vua nào đánh chiếm Vi-giay-a?',o:['Lê Thánh Tông','Lê Lợi','Lý Thánh Tông'],a:0,h:['Ông là vua giỏi nhất thời Lê sơ.']},
+  {t:'tf',q:'Sau khi Phù Nam sụp đổ, Nam Bộ trên danh nghĩa thuộc Chân Lạp.',a:true,h:['Chân Lạp sau này là Cam-pu-chia.']},
+  {t:'sort',q:'Sắp xếp các sự kiện theo thứ tự từ SỚM đến MUỘN.',items:[{t:'Phù Nam sụp đổ (đầu thế kỉ VII)',y:650},{t:'Chăm-pa thịnh đạt nhất (từ 1220)',y:1220},{t:'Lê Thánh Tông đánh chiếm Vi-giay-a',y:1471}],h:['Thế kỉ VII sớm nhất.']},
+  {t:'match',q:'Nối tên gọi với ý nghĩa.',p:[['Mỹ Sơn','Khu đền tháp của người Chăm'],['Vi-giay-a','Kinh đô của Chăm-pa'],['Phù Nam','Vương quốc cổ ở Nam Bộ']],h:['Xem lại thẻ nhân vật.']}],
+ easy:{facts:[{e:'🛕',t:'Người Chăm xây đền tháp Mỹ Sơn.'},{e:'🏯',t:'Chăm-pa ở miền Trung nước ta.'},{e:'🌾',t:'Nam Bộ xưa có vương quốc Phù Nam.'}],
+  qs:[{q:'Mỹ Sơn là đền tháp của ai?',o:['Người Chăm','Người Thái'],a:0},{q:'Chăm-pa ở miền nào của nước ta?',o:['Miền Trung','Miền Bắc'],a:0},{q:'Nam Bộ xưa có vương quốc nào?',o:['Phù Nam','Lan Xang'],a:0}]}}
+};
+
+/* Cấu trúc theo chủ đề. Dòng bắt đầu bằng ~ là bài sắp ra mắt */
+const CH=[
+ {t:'Chương 1. Tây Âu từ thế kỉ V đến nửa đầu thế kỉ XVI',ic:'🏰',col:'#0e7490',it:['tayau','pk','phuchung']},
+ {t:'Chương 2. Trung Quốc và Ấn Độ thời trung đại',ic:'🏯',col:'#ca8a04',it:['trungquoc','ando']},
+ {t:'Chương 3. Đông Nam Á từ nửa sau thế kỉ X đến nửa đầu thế kỉ XVI',ic:'🌴',col:'#059669',it:['dna','lao','cpc']},
+ {t:'Chương 4. Đất nước dưới thời các vương triều Ngô – Đinh – Tiền Lê (939 – 1009)',ic:'🌊',col:'#0369a1',it:['ngo','dtl']},
+ {t:'Chương 5. Đại Việt thời Lý – Trần – Hồ (1009 – 1407)',ic:'🐉',col:'#b45309',it:['ly','tong','tran','mn','ho']},
+ {t:'Chương 6. Khởi nghĩa Lam Sơn và Đại Việt thời Lê sơ (1418 – 1527)',ic:'🗡️',col:'#15803d',it:['lamson','leso']},
+ {t:'Chương 7. Vùng đất phía Nam Việt Nam từ đầu thế kỉ X đến đầu thế kỉ XVI',ic:'🌾',col:'#be185d',it:['champa']}
+];
+const SHORT={tayau:'Phong kiến Tây Âu',pk:'Phát kiến địa lí',phuchung:'Phục hưng',trungquoc:'Trung Quốc',ando:'Ấn Độ',dna:'Đông Nam Á',lao:'Vương quốc Lào',cpc:'Cam-pu-chia',ngo:'Nhà Ngô',dtl:'Đinh – Tiền Lê',ly:'Nhà Lý',tong:'Chống Tống',tran:'Nhà Trần',mn:'Chống Nguyên – Mông',ho:'Nhà Hồ',lamson:'Lam Sơn',leso:'Lê sơ',champa:'Chăm-pa – Nam Bộ'};
+const nm=id=>'Bài '+LS[id].bai+'. '+LS[id].t;
+const ORDER=CH.flatMap(c=>c.it.filter(x=>x[0]!='~'));
+
+/* ================= Tiến độ ================= */
+const LV2=()=>ST.lv==2;
+const stepsOf=()=>LV2()?['v','c']:['k','t','p','pr','ts'];
+const done=id=>{const p=P(id);return stepsOf().filter(k=>p.s[k]).length};
+const lessonDone=id=>done(id)==stepsOf().length;
+const stars=id=>{const b=P(id).best;return b==null?0:b>=.8?3:b>=.6?2:1};
+const mark=(id,k)=>{P(id).s[k]=1;save()};
+
+/* ================= Khung giao diện chung ================= */
+function tg(k){ST[k]=ST[k]?0:1;save();if(k=='say')stopS();document.body.classList.toggle('big',!!ST.big);document.querySelectorAll('[data-tg]').forEach(b=>{const on=ST[b.dataset.tg];b.classList.toggle('on',!!on);b.setAttribute('aria-pressed',!!on);if(b.dataset.tg=='say')b.textContent='🔊 Tự đọc: '+(on?'bật':'tắt')})}
+const bar=(back,extra='')=>`<div class="top">${back?`<button class="sm" onclick="${back}">⬅ Quay lại</button>`:''}<a class="btn sm" href="index.html">🏠 Trang chủ</a><span class="sp"></span>${extra}<button class="sm ${ST.big?'on':''}" data-tg="big" aria-pressed="${!!ST.big}" onclick="tg('big')">🔠 Chữ to</button><button class="sm ${ST.say?'on':''}" data-tg="say" aria-pressed="${!!ST.say}" onclick="tg('say')">🔊 Tự đọc: ${ST.say?'bật':'tắt'}</button></div>`;
+function mount(h,keep){stopS();document.body.className=ST.big?'big':'';A.innerHTML=h;if(!keep)scrollTo(0,0)}
+const hero=(id,sub)=>{const l=LS[id];return `<div class="hero" style="--c:${l.col}"><span class="hi">${l.ic}</span><div><small>Bài ${l.bai} · ${l.per}</small><h1>${l.t}</h1>${sub?`<p>${sub}</p>`:''}</div></div>`};
+function confetti(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const c=document.createElement('div');c.className='cf';const co=['#f59e0b','#dc2626','#15803d','#2563eb','#7c3aed'];for(let i=0;i<26;i++){const e=document.createElement('i');e.style.cssText=`left:${Math.random()*100}%;background:${co[i%5]};animation-delay:${Math.random()*.3}s;animation-duration:${1.1+Math.random()*.9}s`;c.appendChild(e)}document.body.appendChild(c);setTimeout(()=>c.remove(),2300)}
+
+/* ================= Trang bìa ================= */
+const scene=()=>'';
+
+function card(m,c,tt,name,desc,chips){return `<button class="lv" style="--lc:${c}" onclick="setLv(${m})"><span class="lh"><small>${tt}</small>${name}</span><span class="lb">${desc}<span class="ch">${chips.map(x=>`<i>${x}</i>`).join('')}</span><span class="go">Chọn cách học này ➜</span></span></button>`}
+const BF=(pos,c1,c2)=>`<svg class="bf ${pos}" viewBox="0 0 80 70" aria-hidden="true"><path d="M40 34C28 6 6 4 6 22c0 12 16 16 34 12z" fill="${c1}" stroke="#6b3f1d" stroke-width="2" stroke-linejoin="round"/><path d="M40 34C52 6 74 4 74 22c0 12-16 16-34 12z" fill="${c1}" stroke="#6b3f1d" stroke-width="2" stroke-linejoin="round"/><path d="M40 38C26 40 12 48 18 60c8 8 18-6 22-22z" fill="${c2}" stroke="#6b3f1d" stroke-width="2" stroke-linejoin="round"/><path d="M40 38C54 40 68 48 62 60c-8 8-18-6-22-22z" fill="${c2}" stroke="#6b3f1d" stroke-width="2" stroke-linejoin="round"/><circle cx="20" cy="20" r="4" fill="#fff" opacity=".75"/><circle cx="60" cy="20" r="4" fill="#fff" opacity=".75"/><circle cx="24" cy="50" r="2.4" fill="#fff" opacity=".7"/><circle cx="56" cy="50" r="2.4" fill="#fff" opacity=".7"/><ellipse cx="40" cy="38" rx="3" ry="14" fill="#4a2a10"/><path d="M38 24q-6-12-10-14M42 24q6-12 10-14" stroke="#4a2a10" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+const SWASH='<svg class="swash" viewBox="0 0 600 44" aria-hidden="true"><path d="M8 30C70 6 130 4 190 20S310 38 370 20 520 2 592 26" fill="none" stroke="#3b2f2a" stroke-width="2.6" stroke-linecap="round"/><path d="M60 36C150 20 230 28 300 34S440 30 540 18" fill="none" stroke="#3b2f2a" stroke-width="1.3" stroke-linecap="round" opacity=".7"/><circle cx="8" cy="30" r="3.2" fill="#3b2f2a"/><circle cx="592" cy="26" r="3.2" fill="#3b2f2a"/></svg>';
+const PN='Ứng dụng công nghệ số và trí tuệ nhân tạo hỗ trợ học sinh khuyết tật trí tuệ học hòa nhập';
+const spk=(x,y,c)=>`<path transform="translate(${x} ${y})" d="M0-9L2.4-2.4 9 0 2.4 2.4 0 9-2.4 2.4-9 0-2.4-2.4z" fill="${c}"/>`;
+const pic1=()=>`<svg viewBox="0 0 320 150" role="img" aria-label="Sách mở, các mốc năm và lá cờ đỏ"><rect width="320" height="150" fill="#dbeafe"/><circle cx="268" cy="34" r="22" fill="#fde68a"/><path d="M0 120C60 102 130 110 200 120S290 126 320 114V150H0z" fill="#93c5fd"/><g transform="translate(86 66)"><path d="M0 8C28-6 58-4 70 8V66C58 54 28 52 0 66z" fill="#fff" stroke="#1e3a8a" stroke-width="3" stroke-linejoin="round"/><path d="M140 8C112-6 82-4 70 8V66C82 54 112 52 140 66z" fill="#f8fafc" stroke="#1e3a8a" stroke-width="3" stroke-linejoin="round"/><path d="M70 8V66" stroke="#1e3a8a" stroke-width="3"/><path d="M14 24q22-8 44 0M14 34q22-8 44 0M14 44q22-8 44 0M84 24q22-8 44 0M84 34q22-8 44 0" stroke="#93c5fd" stroke-width="2.4" fill="none" stroke-linecap="round"/></g><g transform="translate(252 62)"><rect width="5" height="64" fill="#78350f"/><path d="M5 4h40l-10 12 10 12H5z" fill="#dc2626"/><path d="M25 8l3 7 7 .8-5.4 4.6 1.6 7-6.2-3.8-6.2 3.8 1.6-7L14 15.8l7-.8z" fill="#fde047"/></g><g font-weight="800" font-size="22" fill="#1e40af"><text x="22" y="52">939</text><text x="28" y="114">1009</text><text x="148" y="40">1418</text></g>${spk(120,26,'#fff')}${spk(214,44,'#fbbf24')}${spk(58,84,'#fff')}</svg>`;
+const pic2=()=>`<svg viewBox="0 0 320 150" role="img" aria-label="Ngôi chùa cổ dưới ánh mặt trời"><rect width="320" height="150" fill="#dcfce7"/><circle cx="52" cy="38" r="22" fill="#fde68a"/><path d="M0 122C70 104 150 112 220 122S300 124 320 116V150H0z" fill="#86efac"/><g transform="translate(112 22) scale(.8)"><rect x="42" y="82" width="56" height="52" fill="#9a3412"/><rect x="58" y="100" width="24" height="34" fill="#451a03"/><path d="M20 82L70 60L120 82z" fill="#b91c1c"/><path d="M30 60L70 42L110 60z" fill="#dc2626"/><path d="M44 42L70 28L96 42z" fill="#b91c1c"/><rect x="66" y="14" width="8" height="16" fill="#92400e"/><path d="M12 84Q70 70 128 84" stroke="#fbbf24" stroke-width="4" fill="none"/></g>${spk(250,40,'#fbbf24')}${spk(92,96,'#f472b6')}${spk(272,92,'#fff')}${spk(224,70,'#f472b6')}</svg>`;
+const lvc=(m,c,bg,sh,n,t,d,ch,pic)=>`<div class="lvc" role="button" tabindex="0" style="--lc:${c};--lbg:${bg};--lsh:${sh}" onclick="setLv(${m})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setLv(${m})}"><span class="lp">${pic}</span><span class="lb2"><small>${n}</small><span class="lt4">${t}</span><span class="ld">${d}</span><span class="ch">${ch.map(x=>`<i>${x}</i>`).join('')}</span><span class="lg2">Chọn mức này ➜</span></span></div>`;
+function start(){
+ mount(`<div class="p1"><div class="ppt"><a class="btn sm" href="index.html">🏠 Trang chủ</a><span class="gap"></span><button class="sm ${ST.big?'on':''}" data-tg="big" aria-pressed="${!!ST.big}" onclick="tg('big')">🔠 Chữ to</button><button class="sm ${ST.say?'on':''}" data-tg="say" aria-pressed="${!!ST.say}" onclick="tg('say')">🔊 Tự đọc: ${ST.say?'bật':'tắt'}</button></div><div class="tf">${SWASH}<div class="tw">${BF('tl','#fde047','#fbbf24')}${BF('tr','#fb923c','#f59e0b')}<h1 class="tn tt"><span class="l1">Chúng mình cùng học</span><span class="l2">Lịch sử</span></h1></div><div class="subl">Lịch sử 7, học theo sách “Kết nối tri thức với cuộc sống”</div><div class="pjn"><i></i><span>${PN}</span><i></i></div></div><div class="pk2">Chọn cách học phù hợp với em</div><div class="lvs">`
+ +lvc(1,'#1d4ed8','#eff6ff','#1e3a8a','Mức 1','Học theo chương trình giảm nhẹ','Dành cho học sinh khuyết tật học hòa nhập, tiếp thu được kiến thức cơ bản. Có dòng thời gian, thẻ nhân vật, luyện tập và kiểm tra cuối bài.',['📖 Ý chính','🕰️ Dòng thời gian','🧑 Nhân vật','📝 Kiểm tra'],pic1())
+ +lvc(2,'#15803d','#f0fdf4','#14532d','Mức 2','Học theo mục tiêu riêng','Dành cho học sinh cần hỗ trợ nhiều. Mỗi bài chỉ có 3 ý rất ngắn, có hình lớn, có giọng đọc, câu hỏi hai lựa chọn, không chấm điểm.',['👀 Xem và nghe','🤝 Cùng làm','🌟 Sticker'],pic2())
+ +`</div></div>`);
+ document.body.classList.add('paper');
+}
+function setLv(n){ST.lv=n;save();home()}
+
+/* ================= Trang chủ ================= */
+const lessonBtn=id=>{const l=LS[id],d=done(id),n=stepsOf().length,s=stars(id);return `<button class="les" style="--c:${l.col}" onclick="lesson('${id}')"><span class="ic">${l.ic}</span><span class="tx"><b>Bài ${l.bai}. ${l.t}</b><small>${l.per}</small></span><span class="st">${lessonDone(id)?'✅':d?d+'/'+n:'▶'}${!LV2()&&s?`<i class="stars" aria-label="${s} sao">${'★'.repeat(s)}</i>`:''}</span></button>`};
+function home(){
+ if(!ST.lv)return start();
+ const all=ORDER.length,dn=ORDER.filter(lessonDone).length,pc=Math.round(100*dn/all),nx=ORDER.find(i=>!lessonDone(i)),ts=ORDER.reduce((s,i)=>s+stars(i),0);
+ let h=bar('start()','<button class="sm" onclick="start()">🔁 Đổi mức</button>')
+ +`<div class="hero" style="--c:#b45309"><span class="hi">📜</span><div><small>Lịch sử 7 · ${LV2()?'Mức 2 · Mục tiêu riêng':'Mức 1 · Chương trình giảm nhẹ'}</small><h1>Chào em! Mình cùng học Lịch sử nhé</h1><p>${nx?'Hôm nay mình học: <b>Bài '+LS[nx].bai+'. '+LS[nx].t+'</b>':'Em đã học hết các bài hiện có. Giỏi quá!'}</p></div></div>
+ <div class="card"><b>🧭 Hành trình của em</b><div class="pb" role="progressbar" aria-valuenow="${pc}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pc}%"></i></div><div>${dn}/${all} bài đã xong${!LV2()&&ts?` · ⭐ ${ts} sao`:''}</div><div class="rowb" style="justify-content:flex-start">${nx?`<button class="pri" style="--c:${LS[nx].col}" onclick="lesson('${nx}')">▶ Học tiếp: Bài ${LS[nx].bai}</button>`:''}<button class="sm" onclick="prog()">📊 Xem kết quả</button></div></div>`;
+ CH.forEach(c=>{h+=`<div class="chap" style="--c:${c.col}"><span>${c.ic}</span>${c.t}</div>`;c.it.forEach(x=>{h+=x[0]=='~'?`<div class="off">🔒 ${x.slice(1)} <small>(sắp ra mắt)</small></div>`:lessonBtn(x)})});
+ h+=`<h2>🧰 Cần xem lại?</h2><div class="tools"><button class="sm" onclick="tlAll()">🕰️ Dòng thời gian lớn</button><button class="sm" onclick="pplAll()">🧑‍🤝‍🧑 Nhân vật lịch sử</button>${LV2()?'':(dn>=3?`<button class="sm" onclick="startQ(null,'rv')">🎲 Ôn tập tổng hợp</button>`:`<button class="sm" disabled>🔒 Ôn tập tổng hợp (mở khi xong 3 bài)</button>`)}</div>`;
+ h+=`<div class="foot">Nội dung bám theo sách Lịch sử và Địa lí 7 – Kết nối tri thức với cuộc sống (18 bài phần Lịch sử). Thầy cô nên đối chiếu với sách giáo khoa khi dạy.</div>`;
+ mount(h)}
+
+/* ================= Bài học ================= */
+function lesson(id){
+ const l=LS[id],p=P(id),L2=LV2();
+ const stp=(n,ic,tt,sub,f,ok)=>`<button class="les" style="--c:${l.col}" onclick="${f}"><span class="ic">${ic}</span><span class="tx"><b>${n}. ${tt}</b><small>${sub}</small></span><span class="st">${ok?'✅':'▶'}</span></button>`;
+ const t=p.best!=null?`Lần tốt nhất: ${Math.round(p.best*100)}%`:'Không có gợi ý';
+ let h=bar('home()')+hero(id,L2?'Em làm từng bước nhỏ nhé':null)+`<div class="goal"><span>🎯</span><p><b>Em sẽ học được:</b> ${esc(l.goal)}</p>${sayB('Em sẽ học được: '+l.goal)}</div><h2>Các bước học</h2>`;
+ if(L2)h+=stp(1,'👀','Xem và nghe','3 ý rất ngắn, có giọng đọc',`view2('${id}')`,p.s.v)+stp(2,'🤝','Cùng làm','Câu hỏi hai lựa chọn, có gợi ý',`startQ('${id}','ez')`,p.s.c);
+ else h+=stp(1,'📖','Ý chính','Đọc ngắn, có mẹo nhớ',`key('${id}')`,p.s.k)+stp(2,'🕰️','Dòng thời gian','Các sự kiện theo năm',`tline('${id}')`,p.s.t)+stp(3,'🧑‍🤝‍🧑','Nhân vật','Thẻ nhân vật, bấm để lật',`people('${id}')`,p.s.p)+stp(4,'🎲','Luyện tập','Có gợi ý, làm lại thoải mái',`startQ('${id}','pr')`,p.s.pr)+stp(5,'📝','Tự kiểm tra',t,`startQ('${id}','ts')`,p.s.ts);
+ mount(h)}
+
+function view2(id){
+ const l=LS[id];
+ let h=bar(`lesson('${id}')`)+hero(id,'Xem và nghe')+`<div class="rowb"><button class="pri" style="--c:${l.col}" data-t="${esc(l.easy.facts.map(f=>f.t).join(' '))}" onclick="sp(this)">🔊 Nghe cả bài</button></div>`;
+ l.easy.facts.forEach(f=>{h+=`<div class="big2" style="--c:${l.col}"><span class="e">${f.e}</span><p>${esc(f.t)}</p>${sayB(f.t)}</div>`});
+ h+=`<div class="rowb"><button class="pri" style="--c:${l.col}" onclick="mark('${id}','v');startQ('${id}','ez')">Em đã xem xong. Cùng làm nhé ➜</button></div>`;
+ mount(h);if(ST.say)speak(l.easy.facts.map(f=>f.t).join(' '))}
+
+function key(id){
+ const l=LS[id];
+ let h=bar(`lesson('${id}')`)+hero(id,'1. Ý chính')+`<div class="rowb"><button class="sm" data-t="${esc(l.key.map(k=>k.t).join(' '))}" onclick="sp(this)">🔊 Nghe cả phần</button></div>`;
+ l.key.forEach(k=>{h+=`<div class="kc" style="--c:${l.col}"><span class="e">${k.e}</span><p>${esc(k.t)}</p>${sayB(k.t)}</div>`});
+ h+=`<details style="--c:${l.col}"><summary>📚 Đọc thêm (không bắt buộc)</summary>${l.more.map(m=>`<p>${esc(m)} ${sayB(m)}</p>`).join('')}</details><div class="memo"><b>💡 Mẹo nhớ</b><div style="display:flex;gap:8px;align-items:center;justify-content:space-between"><span>${esc(l.tip)}</span>${sayB(l.tip)}</div></div>
+ <div class="rowb"><button class="pri" style="--c:${l.col}" onclick="mark('${id}','k');tline('${id}')">Xong. Sang dòng thời gian ➜</button></div>`;
+ mount(h)}
+
+function tline(id){
+ const l=LS[id];
+ let h=bar(`lesson('${id}')`)+hero(id,'2. Dòng thời gian')+`<div class="memo" style="font-size:.85em">Bấm vào từng sự kiện để xem chi tiết. Năm nhỏ hơn thì xảy ra sớm hơn.</div><div class="tm" style="--c:${l.col}">`;
+ l.tl.forEach((e,i)=>{h+=`<button class="ev" aria-expanded="false" onclick="evt(this)"><span class="y">${e.s}</span><span class="b"><b>${esc(e.t)}<span class="ar">▾</span></b><span class="d" data-t="${esc('Năm '+e.s+'. '+e.t+'. '+e.d)}">${esc(e.d)}</span></span></button>`});
+ h+=`</div><div class="rowb"><button class="pri" style="--c:${l.col}" onclick="mark('${id}','t');people('${id}')">Xong. Sang nhân vật ➜</button></div>`;
+ mount(h)}
+function evt(b){const o=b.getAttribute('aria-expanded')=='true';b.setAttribute('aria-expanded',!o);b.querySelector('.ar').textContent=o?'▾':'▴';if(!o&&ST.say)speak(b.querySelector('.d').dataset.t)}
+
+const pcards=(list,col)=>`<div class="pcs" style="--c:${col}">${list.map(x=>`<button class="pc" aria-expanded="false" onclick="pc(this)"><span class="ph"><span class="pi">${x.ic}</span><span><b>${esc(x.n)}</b><small>${esc(x.r)}</small></span></span><span class="pd" data-t="${esc(x.n+'. '+x.r+'. '+x.d)}">${esc(x.d)}</span></button>`).join('')}</div>`;
+function pc(b){const o=b.getAttribute('aria-expanded')=='true';b.setAttribute('aria-expanded',!o);if(!o&&ST.say)speak(b.querySelector('.pd').dataset.t)}
+function people(id){
+ const l=LS[id];
+ mount(bar(`lesson('${id}')`)+hero(id,'3. Nhân vật')+`<div class="memo" style="font-size:.85em">Bấm vào thẻ để xem nhân vật đã làm gì.</div>`+pcards(l.ppl,l.col)+`<div class="rowb"><button class="pri" style="--c:${l.col}" onclick="mark('${id}','p');startQ('${id}','pr')">Xong. Sang luyện tập ➜</button></div>`)}
+
+/* ================= Toàn cảnh: dòng thời gian lớn, nhân vật ================= */
+function tlAll(){
+ const ev=[];ORDER.forEach(id=>LS[id].tl.forEach(e=>ev.push({...e,id,col:LS[id].col})));ev.sort((a,b)=>a.y-b.y);
+ let h=bar('home()')+`<div class="hero" style="--c:#b45309"><span class="hi">🕰️</span><div><small>Toàn cảnh</small><h1>Dòng thời gian lớn</h1><p>Các sự kiện trong 18 bài, từ thế kỉ IV đến thế kỉ XVIII, của thế giới và Việt Nam, xếp theo năm. Bấm vào một sự kiện để mở bài học.</p></div></div>
+ <h2>Các thời kì (kéo sang ngang)</h2><div class="era">`;
+ ORDER.slice().sort((a,b)=>LS[a].tl[0].y-LS[b].tl[0].y).forEach(id=>{const l=LS[id];h+=`<button style="--c:${l.col}" onclick="lesson('${id}')"><b>${l.ic} ${SHORT[id]}</b><small>Bài ${l.bai} · ${l.per}</small></button>`});
+ h+=`</div>`;let last=0;
+ ev.forEach(e=>{const c=Math.ceil(e.y/100);if(c!=last){last=c;h+=`<div class="cent">Thế kỉ ${rom(c)}</div>`}
+  h+=`<button class="trow" style="--c:${e.col}" onclick="lesson('${e.id}')"><b class="yr">${e.s}</b><span>${esc(e.t)}<small>${LS[e.id].ic} Bài ${LS[e.id].bai}. ${esc(SHORT[e.id])}</small></span></button>`});
+ mount(h)}
+function pplAll(){
+ let h=bar('home()')+`<div class="hero" style="--c:#7c3aed"><span class="hi">🧑‍🤝‍🧑</span><div><small>Toàn cảnh</small><h1>Nhân vật lịch sử</h1><p>Bấm vào thẻ để xem nhân vật đã làm gì.</p></div></div>`;
+ ORDER.forEach(id=>{const l=LS[id];h+=`<div class="chap" style="--c:${l.col}"><span>${l.ic}</span>${l.t}</div>`+pcards(l.ppl,l.col)});
+ mount(h)}
+
+/* ================= Câu hỏi ================= */
+let g=null;
+function prepQ(x){x=JSON.parse(JSON.stringify(x));x.w=0;x.done=0;x.hi=0;x.msg='';x.cls='';x.h=x.h||[];
+ if(x.t=='mc'){x.opts=shuf(x.o.map((t,i)=>({t,ok:i==x.a})));x.bad=[]}
+ if(x.t=='tf'){x.bad=[]}
+ if(x.t=='sort'){x.order=x.items.map((_,i)=>i).sort((a,b)=>x.items[a].y-x.items[b].y);x.pos=[];x.bank=shuf(x.items.map((_,i)=>i))}
+ if(x.t=='match'){x.L=x.p.map((_,i)=>i);x.Rr=shuf(x.p.map((_,i)=>i));x.mdone=[];x.sel=null}
+ return x}
+function startQ(id,mode){
+ let qs;
+ if(mode=='ez'){qs=LS[id].easy.qs.map(q=>prepQ({t:'mc',q:q.q,o:q.o,a:q.a,h:q.h||['Nghe lại phần “Xem và nghe”: '+LS[id].easy.facts.map(f=>f.t).join(' ')]}))}
+ else if(mode=='rv'){let pool=ORDER.filter(i=>Object.keys(P(i).s).length);if(pool.length<2)pool=ORDER.slice();let all=[];pool.forEach(i=>LS[i].qs.forEach(q=>all.push(Object.assign({},q,{from:i}))));qs=shuf(all).slice(0,8).map(prepQ)}
+ else{qs=shuf(LS[id].qs).map(prepQ);if(mode=='ts')qs=qs.slice(0,5)}
+ g={id,mode,qs,k:0,ok:0,back:mode=='rv'?'home()':`lesson('${id}')`,col:id?LS[id].col:'#15803d'};qView(false)}
+const ansText=x=>x.t=='mc'?x.opts.find(o=>o.ok).t:x.t=='tf'?(x.a?'Đúng':'Sai'):x.t=='sort'?x.order.map((i,k)=>(k+1)+'. '+x.items[i].t).join('; '):x.p.map(p=>p[0]+' – '+p[1]).join('; ');
+const spoken=x=>x.q+(x.t=='mc'?' Các lựa chọn là: '+x.opts.map(o=>o.t).join('. '):x.t=='tf'?' Đúng hay sai?':'');
+function qView(keep){
+ const x=g.qs[g.k],n=g.qs.length,ts=g.mode=='ts',ez=g.mode=='ez';
+ let dots='';for(let i=0;i<n;i++)dots+=`<i class="${i<g.k?'d':i==g.k?'c':''}"></i>`;
+ let b='';
+ if(x.t=='mc')b=`<div class="opts">${x.opts.map((o,i)=>`<button class="${x.bad.includes(i)?'no ':''}${x.done&&o.ok?'yes ':''}${!x.done&&x.w>=2&&!ts&&o.ok?'pulse':''}" ${x.done||x.bad.includes(i)?'disabled':''} onclick="pk(${i})">${esc(o.t)}</button>`).join('')}</div>`;
+ else if(x.t=='tf')b=`<div class="opts">${[true,false].map(v=>`<button class="${x.bad.includes(v)?'no ':''}${x.done&&x.a===v?'yes ':''}${!x.done&&x.w>=2&&!ts&&x.a===v?'pulse':''}" ${x.done||x.bad.includes(v)?'disabled':''} onclick="pt(${v})">${v?'✔ Đúng':'✖ Sai'}</button>`).join('')}</div>`;
+ else if(x.t=='sort')b=`<div class="memo" style="font-size:.85em">Bấm các sự kiện theo thứ tự từ <b>sớm nhất</b> đến <b>muộn nhất</b>.</div><div class="slots">${x.order.map((_,k)=>`<span class="slot ${x.pos[k]!=null?'f':''}"><em>${k+1}</em>${x.pos[k]!=null?esc(x.items[x.pos[k]].t):''}</span>`).join('')}</div><div class="bank">${x.bank.filter(i=>!x.pos.includes(i)).map(i=>`<button onclick="so(${i})">${esc(x.items[i].t)}</button>`).join('')}</div>`;
+ else b=`<div class="memo" style="font-size:.85em">Bấm một ô ở bên trái, rồi bấm ô ở bên phải hợp với nó.</div><div class="mt"><div>${x.L.map(i=>`<button class="${x.mdone.includes(i)?'yes ':''}${x.sel===i?'sel':''}" ${x.mdone.includes(i)?'disabled':''} onclick="ml(${i})">${esc(x.p[i][0])}</button>`).join('')}</div><div>${x.Rr.map(i=>`<button class="${x.mdone.includes(i)?'yes':''}" ${x.mdone.includes(i)?'disabled':''} onclick="mr(${i})">${esc(x.p[i][1])}</button>`).join('')}</div></div>`;
+ const hn=x.h.slice(0,x.hi).map(t=>`<div class="hint">💡 ${esc(t)}</div>`).join('');
+ const hb=(!ts&&!x.done&&x.hi<x.h.length)?`<button class="sm" onclick="hint()">💡 Gợi ý</button>`:'';
+ const nb=x.done?`<div class="rowb"><button class="pri" style="--c:${g.col}" onclick="nx()">${g.k<n-1?'Tiếp theo ➜':'Xem kết quả ➜'}</button></div>`:'';
+ const tt={pr:'🎲 Luyện tập',ts:'📝 Tự kiểm tra',ez:'🤝 Cùng làm',rv:'🎲 Ôn tập tổng hợp'}[g.mode];
+ mount(bar(g.back,hb)+`<h1>${tt}</h1><div class="dots" aria-label="Câu ${g.k+1}/${n}">${dots}</div><div class="box" style="--c:${g.col}"><div class="q"><span>${esc(x.q)}</span>${sayB(spoken(x))}</div>${b}<div>${hn}</div><div id="fb" class="msg ${x.cls}" aria-live="polite">${x.msg}</div>${nb}</div>`,keep);
+ if(!x.sp){x.sp=1;if(ST.say)speak(spoken(x))}}
+const hint=()=>{const x=g.qs[g.k];if(x.hi<x.h.length){x.hi++;qView(true)}};
+function good(){const x=g.qs[g.k];if(x.done)return;x.done=1;if(!x.w)g.ok++;
+ const st=R(['🌟','🎈','🏅','🦉','🍀']);
+ x.msg=g.mode=='ez'?`<div class="res"><div class="big">${st}</div>Giỏi quá! Em làm đúng rồi.</div>`:R(['Giỏi quá! Em làm đúng rồi.','Chính xác! Tuyệt vời.','Đúng rồi! Em nhớ bài rất tốt.']);
+ x.cls='g';if(g.mode!='ts')confetti();qView(true);if(ST.say&&g.mode!='ts')speak(clean(x.msg))}
+function bad(extra){const x=g.qs[g.k];if(x.done)return;x.w++;
+ if(g.mode=='ts'){x.done=1;x.msg='Đã ghi nhận. Đáp án đúng là: '+esc(ansText(x));x.cls=''}
+ else{x.msg=(g.mode=='ez'?'Chưa đúng cũng không sao. Em thử lại nhé.':'Chưa đúng. Em xem gợi ý rồi thử lại nhé.')+(extra?' '+extra:'');x.cls='';if(x.w>=2&&(x.t=='mc'||x.t=='tf'))x.msg+=' Đáp án đúng đang nhấp nháy.'}
+ qView(true);if(ST.say)speak(clean(x.msg))}
+function pk(i){const x=g.qs[g.k];if(x.done)return;if(x.opts[i].ok)good();else{if(g.mode!='ts')x.bad.push(i);bad()}}
+function pt(v){const x=g.qs[g.k];if(x.done)return;if(x.a===v)good();else{if(g.mode!='ts')x.bad.push(v);bad()}}
+function so(i){const x=g.qs[g.k];if(x.done)return;if(i==x.order[x.pos.length]){x.pos.push(i);if(x.pos.length==x.order.length)good();else{x.msg='Đúng rồi! Tiếp tục nhé.';x.cls='g';qView(true)}}else{const nxt=x.items[x.order[x.pos.length]].t;bad(x.w>=2&&g.mode!='ts'?'Gợi ý: sự kiện kế tiếp là “'+nxt+'”.':'')}}
+function ml(i){const x=g.qs[g.k];if(x.done)return;x.sel=i;x.msg='';x.cls='';qView(true)}
+function mr(i){const x=g.qs[g.k];if(x.done)return;if(x.sel==null){x.msg='Em bấm một ô ở bên trái trước nhé.';x.cls='';return qView(true)}
+ if(x.sel==i){x.mdone.push(i);x.sel=null;if(x.mdone.length==x.p.length)good();else{x.msg='Đúng rồi! Nối tiếp nhé.';x.cls='g';qView(true)}}
+ else{const s=x.sel;x.sel=null;bad(x.w>=2&&g.mode!='ts'?'Gợi ý: “'+x.p[s][0]+'” hợp với “'+x.p[s][1]+'”.':'')}}
+function nx(){g.k++;if(g.k<g.qs.length)qView(false);else fin()}
+function fin(){
+ const n=g.qs.length,k=g.ok,id=g.id,m=g.mode,r=k/n;let h='';
+ if(m=='ts'){const p=P(id);p.best=Math.max(p.best||0,r);p.s.ts=1;p.n=(p.n||0)+1;save();
+  const s=r>=.8?3:r>=.6?2:1;h=`<div class="res"><div class="big">${r>=.8?'🏆':r>=.6?'👍':'💪'}</div><div class="sc">${k}/${n} câu đúng ngay lần đầu</div><div class="stars" style="font-size:2rem">${'★'.repeat(s)}${'☆'.repeat(3-s)}</div><p>${r>=.8?'Em làm rất tốt!':r>=.6?'Em làm khá tốt!':'Em cần luyện thêm một chút. Em cố lên nhé!'}</p></div>`;if(r>=.6)confetti()}
+ else if(m=='ez'){mark(id,'c');h=`<div class="res"><div class="big">${R(['🌟','🎈','🏅','🦉'])}</div><div class="sc">Em đã hoàn thành bài học!</div><p>Em được tặng một sticker. Giỏi quá!</p></div>`;confetti()}
+ else{if(m=='pr')mark(id,'pr');h=`<div class="res"><div class="big">${r>=.8?'🌟':'👏'}</div><div class="sc">${k}/${n} câu đúng ngay lần đầu</div><p>${r>=.8?'Em làm rất tốt!':'Em đã cố gắng rất nhiều. Làm lại để nhớ lâu hơn nhé.'}</p></div>`;if(r>=.6)confetti()}
+ const next=m=='rv'?'':m=='pr'?`<button class="pri" style="--c:${g.col}" onclick="startQ('${id}','ts')">📝 Sang tự kiểm tra</button>`:'';
+ mount(bar(g.back)+`<h1>Kết quả</h1><div class="box" style="--c:${g.col}">${h}<div class="rowb">${next}<button onclick="startQ(${id?`'${id}'`:'null'},'${m}')">🔁 Làm lại</button><button onclick="${g.back}">⬅ Về bài học</button><button onclick="home()">🏠 Trang chủ</button></div></div>`);
+ if(ST.say&&m!='ts')speak(clean(h))}
+
+/* ================= Tiến bộ và báo cáo ================= */
+function reportText(){
+ const rows=ORDER.map(id=>{const p=P(id),d=done(id),n=stepsOf().length;if(!d)return null;return '- '+nm(id)+': đã làm '+d+'/'+n+' bước'+(!LV2()&&p.best!=null?', kiểm tra tốt nhất '+Math.round(p.best*100)+'%':'')}).filter(Boolean);
+ return 'BÁO CÁO HỌC LỊCH SỬ 7 (Kết nối tri thức)\nHọc sinh: '+(ST.name||'(chưa ghi tên)')+'\nCách học: '+(LV2()?'Mức 2 – mục tiêu riêng (không chấm điểm)':'Mức 1 – chương trình giảm nhẹ')+'\nNgày: '+new Date().toLocaleDateString('vi-VN')+'\n\n'+(rows.length?rows.join('\n'):'Em chưa học bài nào.')+'\n\nTổng: '+ORDER.filter(lessonDone).length+'/'+ORDER.length+' bài đã hoàn thành.'}
+function prog(){
+ let h=bar('home()')+`<div class="hero" style="--c:#2563eb"><span class="hi">📊</span><div><small>Tiến bộ</small><h1>Em đã làm được gì?</h1><p>Dữ liệu chỉ lưu trên máy này.</p></div></div>
+ <div class="card"><table class="tb"><tr><th>Bài</th><th>Bước</th>${LV2()?'':'<th>Kiểm tra</th>'}</tr>${ORDER.map(id=>{const p=P(id);return `<tr><td>${LS[id].ic} Bài ${LS[id].bai}. ${esc(SHORT[id])}</td><td>${done(id)}/${stepsOf().length}</td>${LV2()?'':`<td>${p.best!=null?Math.round(p.best*100)+'%':'–'}</td>`}</tr>`}).join('')}</table></div>
+ <div class="card"><b>📤 Gửi báo cáo cho thầy cô</b><div class="nr"><input id="nm" maxlength="30" autocomplete="off" placeholder="Tên của em" value="${esc(ST.name||'')}" aria-label="Tên của em"></div><textarea id="rt" readonly style="width:100%;min-height:170px;font:inherit;font-size:.8em;padding:10px;border:3px solid var(--bd);border-radius:14px;background:var(--cd);color:var(--tx)"></textarea>
+ <div class="rowb"><button id="rcp">📋 Sao chép</button><button id="rsh">📲 Chia sẻ</button></div><div id="rm" class="msg" style="min-height:0"></div></div>
+ <div class="rowb"><button onclick="resetAll()">🗑️ Xóa tiến độ trên máy này</button></div>`;
+ mount(h);
+ const n=document.getElementById('nm'),t=document.getElementById('rt'),m=s=>document.getElementById('rm').textContent=s;
+ const up=()=>{ST.name=n.value.trim();save();t.value=reportText()};n.oninput=up;up();
+ document.getElementById('rcp').onclick=()=>{try{navigator.clipboard.writeText(t.value).then(()=>m('✅ Đã sao chép. Em dán vào tin nhắn gửi thầy cô nhé.'),()=>{t.select();m('Em bấm giữ và chọn Sao chép nhé.')})}catch(e){t.select();m('Em bấm giữ và chọn Sao chép nhé.')}};
+ document.getElementById('rsh').onclick=()=>{if(navigator.share)navigator.share({title:'Báo cáo học Lịch sử 7',text:t.value}).catch(()=>{});else m('Máy này chưa hỗ trợ chia sẻ. Em dùng nút Sao chép nhé.')}}
+function resetAll(){if(confirm('Xóa toàn bộ tiến độ học Lịch sử trên máy này?')){ST.p={};save();prog()}}
+
+(ST.lv?home:start)();
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script></body></html>
