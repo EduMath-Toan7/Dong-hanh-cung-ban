@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.className+=" js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f97316">
+<title>Chúng mình cùng học</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent-orange:#f97316;--orange-dark:#ea580c;--cream:#fff7ed;--bg:#fff;--text:#334155;--border-light:#e2e8f0;--teal:#0d9488;--teal-bg:#f0fdfa}
+*{box-sizing:border-box}
+html{scroll-padding-top:80px}
+body{font-family:'Comfortaa',cursive;line-height:1.6;margin:0;background:var(--bg);color:var(--text)}
+body.lock{overflow:hidden}
+a:focus-visible,button:focus-visible{outline:3px solid #fb923c;outline-offset:2px}
+/* đầu trang */
+header{padding:30px 20px 22px;text-align:center;background:linear-gradient(180deg,var(--cream),#fff)}
+.school-name{font-size:1rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.school-name .sn{background:linear-gradient(90deg,#f97316,#facc15,#f97316);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+header h1{margin:0;font-size:2.2rem;font-weight:700;color:var(--accent-orange);line-height:1.25}
+header p{margin:8px auto 0;opacity:.85;font-size:.92rem;max-width:34em}
+.logo{flex:none;width:46px;height:46px;filter:drop-shadow(0 2px 3px rgba(234,88,12,.35))}
+.logo.hl{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.2em;margin-right:.3em}
+/* menu */
+.menu{position:sticky;top:0;z-index:20;background:rgba(255,247,237,.97);backdrop-filter:blur(6px);border-top:1px solid var(--border-light);border-bottom:2px solid var(--accent-orange);padding-top:env(safe-area-inset-top,0px)}
+.menu ul{list-style:none;margin:0 auto;padding:8px 12px;max-width:860px;display:flex;gap:8px;justify-content:center}
+.menu li{flex:1 1 0;max-width:260px}
+.menu a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:6px 10px;text-align:center;line-height:1.25;font-size:.9rem;font-weight:700;color:#fff;text-decoration:none;border:2px solid rgba(255,255,255,.55);border-radius:15px;box-shadow:0 4px 0 rgba(0,0,0,.22);text-shadow:0 1px 1px rgba(0,0,0,.25);transition:transform .15s,box-shadow .15s,filter .15s}
+.menu a.m1{background:linear-gradient(135deg,#ea580c,#f97316);--ring:#ea580c}
+.menu a.m2{background:linear-gradient(135deg,#0f766e,#14b8a6);--ring:#0f766e}
+.menu a.m3{background:linear-gradient(135deg,#4f46e5,#7c3aed);--ring:#5b21b6}
+.menu a:hover{filter:brightness(1.1);box-shadow:0 6px 0 rgba(0,0,0,.22),0 8px 16px rgba(0,0,0,.18)}
+.menu a:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.22)}
+.menu a[aria-current="page"]{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--ring),0 6px 10px rgba(0,0,0,.2)}
+@media(prefers-reduced-motion:no-preference){.menu a:hover{transform:translateY(-2px)}.gc:hover{transform:translateY(-4px)}}
+/* nội dung */
+main{max-width:860px;margin:0 auto;padding:28px 16px 10px}
+.sec{display:flex;align-items:center;gap:12px;margin:6px 0 18px;color:var(--orange-dark);font-weight:700;font-size:1.25rem;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+.sec::before,.sec::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--accent-orange))}
+.sec::after{transform:scaleX(-1)}
+.corner{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.gc{display:flex;flex-direction:column;align-items:center;text-align:center;color:inherit;text-decoration:none;background:#fff;border:2px solid var(--cc);border-radius:26px;padding:24px 18px 22px;box-shadow:0 6px 0 color-mix(in srgb,var(--cc) 22%,transparent);transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.gc:hover{background:var(--cb);box-shadow:0 6px 0 color-mix(in srgb,var(--cc) 22%,transparent),0 12px 22px rgba(0,0,0,.1)}
+.gc.one{--cc:var(--accent-orange);--cb:var(--cream)}
+.gc.two{--cc:var(--teal);--cb:var(--teal-bg)}
+.gc .ic{width:76px;height:76px;border-radius:50%;background:var(--cb);border:2px solid var(--cc);display:grid;place-items:center;font-size:2.4rem;margin-bottom:10px}
+.gc .part{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--cc);border-radius:999px;padding:2px 14px}
+.gc .ttl{display:block;margin:8px 0 6px;font-size:1.25rem;font-weight:700;line-height:1.35;color:var(--cc)}
+.gc.one .ttl{color:var(--orange-dark)}
+.gc .dsc{display:block;font-size:.86rem;color:#64748b;line-height:1.6}
+.gc .chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:12px 0 16px}
+.gc .chips i{font-style:normal;font-size:.76rem;background:var(--cb);border:1px solid var(--cc);border-radius:999px;padding:2px 10px;color:#475569}
+.gc .go{display:inline-flex;align-items:center;min-height:44px;margin-top:auto;background:var(--cc);color:#fff;border-radius:999px;padding:8px 22px;font-weight:700;font-size:.9rem}
+footer{text-align:center;padding:30px 20px;margin-top:24px;border-top:1px solid var(--border-light);color:#64748b;font-size:.85rem}
+footer strong{color:var(--accent-orange)}
+@media(max-width:600px){header h1{font-size:1.6rem}.menu ul{gap:4px;padding:6px}.menu a{font-size:.74rem;padding:4px;min-height:48px}}
+/* hộp thoại */
+.modal{display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:3vh 3vw;background:rgba(51,65,85,.6)}
+.modal.open{display:flex;animation:fadeIn .2s ease}
+html:not(.js) .modal:target{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.dlg{display:flex;flex-direction:column;width:min(860px,100%);max-height:100%;padding:0;border:2px solid var(--accent-orange);border-radius:24px;color:var(--text);background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:pop .28s ease}
+.dlg-h{display:flex;align-items:center;gap:10px;padding:14px 16px 14px 22px;background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;flex:none}
+.dlg-h h2{margin:0;flex:1;font-size:1.2rem;line-height:1.3}
+.dlg .x{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid #fff;background:rgba(255,255,255,.2);color:#fff;font:700 1.2rem 'Comfortaa',cursive;cursor:pointer}
+.dlg .x:hover{background:#fff;color:var(--orange-dark)}
+.dlg-b{flex:1 1 auto;min-height:0;overflow-y:auto;padding:18px 22px 8px;overscroll-behavior:contain}
+.dlg-f{flex:none;padding:12px 22px 16px;text-align:center;border-top:1px solid var(--border-light);background:#fffcf9}
+.btn-close{font:700 .95rem 'Comfortaa',cursive;min-height:46px;padding:8px 32px;border-radius:999px;border:2px solid var(--accent-orange);background:var(--accent-orange);color:#fff;cursor:pointer;transition:background .2s,color .2s}
+.btn-close:hover{background:#fff;color:var(--orange-dark)}
+.dlg p{text-align:justify;text-indent:1.9em;line-height:1.85;margin:.7em 0;font-size:.95rem}
+.dlg p.greet,.dlg p.sign{text-indent:0}
+.dlg p.greet{font-weight:700;color:var(--orange-dark)}
+.dlg p.sign{text-align:right;font-weight:700;color:var(--orange-dark);margin-top:1.2em}
+.proj{text-align:center;margin:0 0 10px;padding:6px 0 4px}
+.proj .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange-dark);border-radius:999px;padding:2px 14px;margin-bottom:6px}
+.proj .pt{display:flex;align-items:center;justify-content:center;gap:10px;margin:2px 0 4px}
+.proj .ptx{font-size:1.6rem;line-height:1.3;font-weight:700;background:linear-gradient(90deg,#ea580c,#f59e0b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.proj .ps{display:block;font-size:.84rem;line-height:1.55;color:#64748b}
+blockquote.msg{margin:14px 0;padding:18px 20px 16px 24px;border-radius:18px;background:linear-gradient(135deg,#fff7ed,#fef3c7);border-left:8px solid var(--accent-orange);font-style:italic;font-size:1rem;line-height:1.85;color:#7c2d12}
+.guide{margin:14px 0;background:#fff;border:2px solid var(--gc,var(--accent-orange));border-radius:22px;overflow:hidden}
+.guide h3{margin:0;padding:12px 18px;font-size:1rem;color:#fff;background:var(--gc,var(--accent-orange));line-height:1.4}
+.guide.teal{--gc:var(--teal)}
+.guide ol{list-style:none;counter-reset:s;margin:0;padding:10px 16px 14px}
+.guide li{counter-increment:s;position:relative;padding:8px 0 8px 44px;font-size:.9rem;line-height:1.65;border-bottom:1px dashed var(--border-light)}
+.guide li:last-child{border-bottom:none}
+.guide li::before{content:counter(s);position:absolute;left:0;top:8px;width:32px;height:32px;border-radius:50%;background:var(--gc,var(--accent-orange));color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+ul.sub{margin:6px 0 2px;padding-left:18px}
+ul.sub li{padding:3px 0;border:none;font-size:.86rem;counter-increment:none;position:static}
+ul.sub li::before{content:none}
+.note{margin:16px 0 8px;padding:12px 16px;border-radius:16px;background:var(--cream);border:2px dashed #fdba74;font-size:.88rem;line-height:1.7}
+#huong-dan .dlg{border-color:#0f766e}
+#huong-dan .dlg-h{background:linear-gradient(135deg,#0f766e,#14b8a6)}
+#huong-dan .btn-close{background:#0f766e;border-color:#0f766e}
+#huong-dan .btn-close:hover{background:#fff;color:#0f766e}
+#huong-dan .x:hover{color:#0f766e}
+@media(max-width:600px){.dlg{border-radius:20px}.dlg-b{padding:14px 14px 4px}.dlg-h h2{font-size:1.05rem}.proj .ptx{font-size:1.3rem}.logo{width:38px;height:38px}}
+@media(prefers-reduced-motion:reduce){.modal.open,.dlg{animation:none}.gc{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="0 0 40 40"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#ea580c"/></linearGradient></defs><circle cx="20" cy="20" r="19" fill="url(#lgg)"/><g fill="none" stroke-width="3"><circle cx="15" cy="20" r="8" stroke="#fff"/><circle cx="25" cy="20" r="8" stroke="#fde68a"/></g></symbol></svg>
+
+<header>
+  <div class="school-name"><span aria-hidden="true">🏫</span> <span class="sn">THCS Chân Mộng</span></div>
+  <h1><svg class="logo hl" aria-hidden="true" focusable="false"><use href="#lg"/></svg>Chúng mình cùng học</h1>
+  <p>Cùng học Toán và Lịch sử, mỗi bạn bước đi theo nhịp riêng của mình</p>
+</header>
+
+<nav class="menu" aria-label="Menu chính">
+  <ul>
+    <li><a class="m1" href="#gioi-thieu" data-modal="gioi-thieu" role="button">📌 Giới thiệu</a></li>
+    <li><a class="m2" href="#huong-dan" data-modal="huong-dan" role="button">📖 Hướng dẫn</a></li>
+    <li><a class="m3" href="#mon-hoc" id="navMon" aria-current="page">📚 Môn học</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="mon-hoc" aria-labelledby="h-mh">
+    <div class="sec" id="h-mh">📚 Môn học</div>
+    <div class="corner">
+      <a class="gc two" href="toan7.html">
+        <span class="ic" aria-hidden="true">🧮</span>
+        <span class="part">Lớp 7</span>
+        <span class="ttl">Chúng mình cùng học Toán</span>
+        <span class="dsc">Học theo sách Toán 7, bộ Kết nối tri thức với cuộc sống. Chọn mức học phù hợp và học từng bước nhỏ.</span>
+        <span class="chips"><i>📘 Cần nhớ</i><i>✏️ Luyện tập</i><i>📝 Kiểm tra</i></span>
+        <span class="go">Vào học Toán ➜</span>
+      </a>
+      <a class="gc one" href="lichsu7.html">
+        <span class="ic" aria-hidden="true">📜</span>
+        <span class="part">Lớp 7</span>
+        <span class="ttl">Chúng mình cùng học Lịch sử</span>
+        <span class="dsc">Học theo sách Lịch sử và Địa lí 7, phần Lịch sử. Có hình lớn, giọng đọc và câu hỏi để ôn bài.</span>
+        <span class="chips"><i>🕰️ Dòng thời gian</i><i>🧑 Nhân vật</i><i>🔊 Đọc to</i></span>
+        <span class="go">Vào học Lịch sử ➜</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Giới thiệu ===== -->
+<div id="gioi-thieu" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-gt"><div class="dlg">
+  <div class="dlg-h"><h2 id="t-gt">📌 Giới thiệu</h2><button type="button" class="x" data-close aria-label="Đóng cửa sổ">✕</button></div>
+  <div class="dlg-b">
+    <div class="proj"><span class="tag">Dự án</span><span class="pt"><svg class="logo" aria-hidden="true" focusable="false"><use href="#lg"/></svg><span class="ptx">Người bạn đồng hành</span></span><span class="ps">Ứng dụng công nghệ số và trí tuệ nhân tạo hỗ trợ học sinh khuyết tật trí tuệ học hòa nhập</span></div>
+    <p class="greet">Kính thưa quý thầy cô, thưa các bạn thân mến,</p>
+    <p>Hôm nay chúng mình muốn kể một câu chuyện rất nhỏ, nhưng là câu chuyện chúng mình trân trọng nhất.</p>
+    <p>Trong ngôi trường THCS Chân Mộng của chúng mình, có những người bạn cùng lớp, cùng sân trường, cùng chia nhau những trưa nắng, nhưng mỗi giờ học lại phải bước chậm hơn một chút. Có bạn cần đọc một câu nhiều lần mới nhớ. Có bạn cần xem một bức hình thật to mới hiểu. Có bạn cần ai đó ngồi cạnh và nhẹ nhàng nói: “Không sao đâu, mình làm lại nhé.”</p>
+    <p>Chúng mình đã nhìn thấy điều đó, và chúng mình tự hỏi: nếu bài học là một con đường, làm sao để bạn nào cũng đi hết được con đường ấy, theo nhịp chân của riêng mình?</p>
+    <blockquote class="msg">“Đồng hành nghĩa là không ai đi trước, không ai bị bỏ lại phía sau.”</blockquote>
+    <p>Từ câu hỏi ấy, “Người bạn đồng hành” ra đời. Đây là sản phẩm do chính học sinh trường THCS Chân Mộng làm ra, dành cho chính các bạn khuyết tật của trường mình. Chúng mình nhờ công nghệ số và trí tuệ nhân tạo làm những người trợ giúp: làm chữ to hơn, để bài học biết nói, chia kiến thức thành từng bước nhỏ. Nhưng điều quan trọng nhất trong sản phẩm này không phải là công nghệ. Đó là tấm lòng.</p>
+    <p>Chúng mình hiểu rằng công bằng không có nghĩa là ai cũng nhận được giống hệt nhau. Công bằng là mỗi người nhận được đúng điều mình cần để bước tiếp. Vì thế, có bạn học theo chương trình giảm nhẹ, có bạn học theo mục tiêu riêng. Có bạn được ghi nhận bằng kết quả, có bạn không cần điểm số, chỉ cần một ngôi sao vì hôm nay đã làm được. Bước nhỏ nào cũng đáng được ăn mừng.</p>
+    <p>Chúng mình cũng không muốn ai nghĩ đây là món quà của người “giỏi hơn” tặng người “kém hơn”. Không phải vậy. Các bạn khuyết tật dạy chúng mình sự kiên nhẫn, sự chân thành và cách vui trước những điều giản dị. Chúng mình làm ra sản phẩm này không phải để giúp từ trên cao nhìn xuống, mà để cùng nhau đi chung một đoạn đường.</p>
+    <p>Nếu có một bạn mở trang này ra và mỉm cười vì hiểu được một bài học, thì với chúng mình, đó đã là phần thưởng lớn nhất.</p>
+    <p>Xin cảm ơn quý thầy cô đã luôn dìu dắt chúng mình. Và xin gửi đến các bạn một lời nhắn giản dị: bạn không cần chạy nhanh, bạn chỉ cần bước tiếp. Chúng mình luôn ở bên cạnh bạn.</p>
+    <p class="sign">Các bạn học sinh trường THCS Chân Mộng</p>
+  </div>
+  <div class="dlg-f"><button type="button" class="btn-close" data-close>✕ Đóng</button></div>
+</div></div>
+
+<!-- ===== Hướng dẫn ===== -->
+<div id="huong-dan" class="modal" role="dialog" aria-modal="true" aria-labelledby="t-hd"><div class="dlg">
+  <div class="dlg-h"><h2 id="t-hd">📖 Hướng dẫn</h2><button type="button" class="x" data-close aria-label="Đóng cửa sổ">✕</button></div>
+  <div class="dlg-b">
+    <p class="greet" style="text-align:center">Chào em! Hãy làm theo các bước dưới đây nhé.</p>
+    <div class="guide">
+      <h3>🚪 Bước đầu: chọn môn học</h3>
+      <ol>
+        <li>Ở thanh menu phía trên, bấm <b>📚 Môn học</b>.</li>
+        <li>Bấm vào thẻ <b>Toán</b> hoặc thẻ <b>Lịch sử</b> để vào học.</li>
+        <li>Muốn đọc lại phần này, bấm <b>📖 Hướng dẫn</b>. Muốn thoát, bấm <b>✕ Đóng</b> hoặc phím <b>Esc</b>.</li>
+      </ol>
+    </div>
+    <div class="guide teal">
+      <h3>🌱 Chọn mức học và học bài</h3>
+      <ol>
+        <li>Chọn mức học:
+          <ul class="sub">
+            <li><b>Mức 1</b> – học theo chương trình giảm nhẹ, có luyện tập và kiểm tra cuối bài.</li>
+            <li><b>Mức 2</b> – học theo mục tiêu riêng, từng bước nhỏ, không chấm điểm, có hình lớn, gợi ý và sticker khen.</li>
+          </ul></li>
+        <li>Chọn bài, rồi học từng mục. Em cứ học theo <b>nhịp độ của mình</b>, làm sai cũng không sao, em có thể làm lại.</li>
+        <li>Cần chữ lớn hơn? Bấm <b>🔠 Chữ to</b>. Ở môn Lịch sử, bấm <b>🔊 Tự đọc</b> hoặc biểu tượng loa để nghe đọc.</li>
+        <li>Muốn quay về trang này, bấm <b>🏠 Trang chủ</b>.</li>
+      </ol>
+    </div>
+    <div class="note"><b>💡 Lưu ý:</b> Kết quả học được lưu ngay trên thiết bị đang dùng, nên đổi sang máy khác sẽ không thấy lại. Tính năng nghe đọc cần thiết bị có giọng đọc tiếng Việt.</div>
+  </div>
+  <div class="dlg-f"><button type="button" class="btn-close" data-close>✕ Đóng</button></div>
+</div></div>
+
+<footer><strong>Người bạn đồng hành</strong><br>Sản phẩm của các bạn học sinh trường THCS Chân Mộng, dành cho các bạn học sinh khuyết tật của trường.</footer>
+
+<script>
+const navMon=document.getElementById('navMon');let lastFocus=null;
+const setCur=l=>{document.querySelectorAll('.menu a').forEach(a=>a.removeAttribute('aria-current'));(l||navMon).setAttribute('aria-current','page')};
+function openModal(id){
+  const m=document.getElementById(id);if(!m)return;closeModal(true);
+  lastFocus=document.activeElement;m.classList.add('open');m.querySelector('.dlg-b').scrollTop=0;
+  document.body.classList.add('lock');setCur(document.querySelector('.menu a[data-modal="'+id+'"]'));
+  m.querySelector('.x').focus({preventScroll:true});
+}
+function closeModal(silent){
+  document.querySelectorAll('.modal.open').forEach(m=>m.classList.remove('open'));
+  document.body.classList.remove('lock');setCur(navMon);
+  if(!silent&&lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});
+}
+document.querySelectorAll('.menu a[data-modal]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();openModal(a.dataset.modal)});
+  a.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();a.click()}});
+});
+document.querySelectorAll('.modal').forEach(m=>{
+  m.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal()));
+  m.addEventListener('click',e=>{if(e.target===m)closeModal()});
+});
+navMon.addEventListener('click',()=>{closeModal(true);setCur(navMon)});
+document.addEventListener('keydown',e=>{
+  const m=document.querySelector('.modal.open');if(!m)return;
+  if(e.key==='Escape'){closeModal();return}
+  if(e.key==='Tab'){
+    const f=[...m.querySelectorAll('button')];const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+});
+</script>
+</body>
+</html>
